@@ -1,0 +1,64 @@
+<app-hero-banner
+  badge="Leadership Perspectives"
+  title="Chairman's Message"
+  subtitle="Visionary guidance on education, character building, and the future of our young scholars."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section leader-message-section">
+  <div class="container">
+    <div class="grid grid-2 message-layout">
+      <!-- Leader Portrait & Profile -->
+      <div class="leader-sidebar">
+        <div class="card leader-profile-card">
+          <div class="portrait-wrapper img-zoom-container">
+            <img [src]="leader.image" [alt]="leader.name" class="leader-photo" />
+          </div>
+          <div class="profile-meta">
+            <h3 class="leader-name">{{ leader.name }}</h3>
+            <p class="leader-role">{{ leader.role }}</p>
+            <span class="leader-qual">{{ leader.qualification }}</span>
+          </div>
+          @if (leader.quote) {
+            <blockquote class="leader-quote">
+              "{{ leader.quote }}"
+            </blockquote>
+          }
+        </div>
+      </div>
+
+      <!-- Full Message Text -->
+      <div class="message-content">
+        <span class="section-badge">Inspiring Tomorrow's Builders</span>
+        <h2 class="section-title">A Message to Our Dear Students & Parents</h2>
+
+        <p class="lead">
+          "Education is the most potent instrument we possess to elevate human dignity, ignite innovative solutions, and sculpt a just and progressive society."
+        </p>
+
+        <p>
+          Welcome to <strong>Shri Bharath Kanna Matriculation Higher Secondary School</strong>. When we founded this school twenty-five years ago, our aspiration was straightforward yet profound: every child born in our community, regardless of socio-economic background, deserves access to an education comparable with the finest institutions in the nation.
+        </p>
+
+        <p>
+          We live in an epoch of unprecedented technological revolution. Artificial intelligence, digital connectivity, and scientific marvels are fundamentally reshaping every sphere of human endeavor. Yet, technology without ethics is a compass without direction. That is why at SBKMHSS, we hold character building, humility, empathy, and respect for our cultural values in equal esteem with academic brilliance.
+        </p>
+
+        <p>
+          To our beloved parents, I express my deepest gratitude for entrusting your children to our care. We regard this trust as a sacred responsibility. We will never cease investing in superior campus infrastructure, modernized laboratories, dedicated sports coaching, and compassionate educator mentorship.
+        </p>
+
+        <p>
+          May God bless our school and every young learner who walks through our gates with wisdom, health, and limitless triumph.
+        </p>
+
+        <div class="signature-block">
+          <p class="sign-name">Dr. R. Kanna, M.E., Ph.D.</p>
+          <p class="sign-title">Chairman & Managing Trustee, SBKMHSS</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

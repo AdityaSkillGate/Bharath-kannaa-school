@@ -1,0 +1,408 @@
+<!-- HERO SECTION -->
+<section class="hero-section">
+  @for (slide of heroSlides; track slide.title; let i = $index) {
+    <div class="hero-slide" [class.active]="selectedSlide === i">
+      <div class="hero-bg" [style.background-image]="'url(' + slide.image + ')'"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="hero-badge animate-fade-in">{{ slide.badge }}</span>
+          <h1 class="hero-title animate-fade-in">{{ slide.title }}</h1>
+          <p class="hero-lead animate-fade-in">{{ slide.subtitle }}</p>
+
+          <div class="hero-cta-group animate-fade-in">
+            <a [routerLink]="slide.ctaPrimaryLink" class="btn btn-accent btn-lg">
+              <span>{{ slide.ctaPrimaryText }}</span>
+              <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow">
+                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+            <a [routerLink]="slide.ctaSecondaryLink" class="btn btn-outline-white btn-lg">
+              <span>{{ slide.ctaSecondaryText }}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Slider Controls -->
+  <button type="button" class="hero-arrow hero-arrow-prev" (click)="prevSlide()" aria-label="Previous Slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button type="button" class="hero-arrow hero-arrow-next" (click)="nextSlide()" aria-label="Next Slide">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <!-- Slider Dots -->
+  <div class="hero-dots">
+    @for (slide of heroSlides; track slide.title; let i = $index) {
+      <button
+        type="button"
+        class="hero-dot"
+        [class.active]="selectedSlide === i"
+        (click)="selectedSlide = i"
+        [attr.aria-label]="'Go to slide ' + (i + 1)">
+      </button>
+    }
+  </div>
+</section>
+
+<!-- NOTICE BOARD TICKER STRIP -->
+<div class="ticker-strip">
+  <div class="container ticker-container">
+    <div class="ticker-label">
+      <span class="ticker-pulse"></span>
+      <span>LATEST NOTICES</span>
+    </div>
+    <div class="ticker-content">
+      @for (item of news; track item.id) {
+        <a routerLink="/admissions/admissions" class="ticker-item">
+          <span class="ticker-tag">{{ item.category }}</span>
+          <span class="ticker-text">{{ item.title }}</span>
+        </a>
+      }
+    </div>
+  </div>
+</div>
+
+<!-- STATISTICS COUNTER CARDS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="grid grid-4 stats-grid">
+      @for (stat of stats; track stat.label; let i = $index) {
+        <div class="stat-counter-card" [style.--stat-index]="i">
+          <div class="stat-icon-wrapper">
+            @if (stat.icon === 'students') {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            } @else if (stat.icon === 'teachers') {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            } @else if (stat.icon === 'years') {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            } @else {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            }
+          </div>
+          <div class="stat-number">
+            {{ stat.number }}<span class="stat-suffix">{{ stat.suffix }}</span>
+          </div>
+          <h4 class="stat-label">{{ stat.label }}</h4>
+          <p class="stat-desc">{{ stat.description }}</p>
+          <div class="stat-bottom-progress"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL OVERVIEW & WELCOME -->
+<section class="section overview-section">
+  <div class="container">
+    <div class="grid grid-2 overview-grid items-center">
+      <div class="overview-media">
+        <div class="overview-image-wrapper">
+          <img
+            src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80"
+            alt="Shri Bharath Kanna School Campus"
+            class="overview-img-main"
+          />
+          <div class="overview-experience-card">
+            <span class="exp-number">25+</span>
+            <span class="exp-text">Years of Empowering Young Minds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="overview-text">
+        <div class="section-badge">Welcome to SBKMHSS</div>
+        <h2 class="section-title">Nurturing Intellectual Depth & <span class="highlight">Uncompromising Integrity</span></h2>
+        <p class="lead">
+          Founded in 1998, <strong>Shri Bharath Kanna Matriculation Higher Secondary School</strong> stands as a landmark of pedagogical distinction and character building in our region.
+        </p>
+        <p>
+          We provide a stimulating learning atmosphere where modern technological literacy intertwines with traditional moral values. Our students develop creative curiosity, emotional balance, scientific inquiry, and leadership agility necessary to thrive in a dynamically evolving world.
+        </p>
+
+        <div class="overview-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">✓</div>
+            <div>
+              <h5>State Board & NEET/JEE Integrated Curriculum</h5>
+              <p>Strong fundamental mastery paired with competitive coaching modules.</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">✓</div>
+            <div>
+              <h5>Spacious Multi-Acre Lush Green Campus</h5>
+              <p>Safe, noise-free learning ecosystem with modern sports complex and laboratories.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="overview-actions">
+          <a routerLink="/about/about-us" class="btn btn-primary">
+            <span>Read Complete History</span>
+          </a>
+          <a routerLink="/about/vision-mission" class="btn btn-outline-primary">
+            <span>Our Vision & Values</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section why-choose-section bg-light">
+  <!-- Ambient Background Animated Glow Blobs -->
+  <div class="why-glow why-glow-1"></div>
+  <div class="why-glow why-glow-2"></div>
+
+  <div class="container relative-content">
+    <app-page-header
+      badge="Why Choose Us"
+      title="The Hallmarks of Our Educational Excellence"
+      subtitle="Discover what elevates Shri Bharath Kanna School into a beacon of trusted excellence for thousands of parents and students.">
+    </app-page-header>
+
+    <div class="grid grid-3 features-grid">
+      @for (feature of features; track feature.id; let i = $index) {
+        <div class="card feature-card" [style.--card-index]="i">
+          <!-- Card Top Gradient Accent Line -->
+          <div class="card-accent-line"></div>
+
+          <!-- Subtle Watermark Number -->
+          <span class="card-watermark-number">0{{ i + 1 }}</span>
+
+          <div class="feature-header">
+            <div class="feature-icon-box">
+              @if (feature.id === 'academic-excellence') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon-svg">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+              } @else if (feature.id === 'experienced-faculty') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon-svg">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              } @else if (feature.id === 'smart-classrooms') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon-svg">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                  <circle cx="12" cy="10" r="2.5"/>
+                </svg>
+              } @else if (feature.id === 'safe-campus') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon-svg">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              } @else if (feature.id === 'holistic-sports') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon-svg">
+                  <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"/>
+                  <path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/>
+                  <path d="M4 22h16"/>
+                  <path d="M10 14.66V17c0 .55-.45 1-1 1H7"/>
+                  <path d="M14 14.66V17c0 .55.45 1 1 1h2"/>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
+                </svg>
+              } @else {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon-svg">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              }
+            </div>
+            @if (feature.tag) {
+              <span class="feature-badge">{{ feature.tag }}</span>
+            }
+          </div>
+
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <div class="feature-title-bar"></div>
+          <p class="feature-desc">{{ feature.description }}</p>
+
+          <div class="feature-card-footer">
+            <span class="card-learn-more">
+              <span>Explore Advantage</span>
+              <svg viewBox="0 0 20 20" fill="currentColor" class="learn-arrow">
+                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMIC WINGS PREVIEW (DEEP ROYAL THEME WITH STAGE COLORS & GLOW ANIMATIONS) -->
+<section class="section academics-preview-section">
+  <div class="academic-ambient-orb orb-1"></div>
+  <div class="academic-ambient-orb orb-2"></div>
+  <div class="container relative-z">
+    <app-page-header
+      badge="Academic Structure"
+      title="Comprehensive Educational Pathways"
+      subtitle="Structured pedagogical wings catering to each developmental phase of your child's cognitive and emotional growth."
+      theme="dark">
+    </app-page-header>
+
+    <div class="grid grid-4 wings-grid">
+      @for (wing of wings; track wing.title; let i = $index) {
+        <div class="card wing-card wing-stage-{{ i + 1 }}" [style.--wing-index]="i">
+          <div class="wing-card-top-bar"></div>
+          <div class="wing-stage-header">
+            <span class="wing-stage-number">Stage 0{{ i + 1 }}</span>
+            <div class="wing-tag">{{ wing.grades }}</div>
+          </div>
+          <h4 class="wing-title">{{ wing.title }}</h4>
+          <span class="wing-age">Age: {{ wing.ageGroup }}</span>
+          <p class="wing-desc">{{ wing.description }}</p>
+          <div class="wing-focus">
+            <strong>Key Focus:</strong>
+            <span>{{ wing.focus }}</span>
+          </div>
+          <div class="wing-glow-corner"></div>
+        </div>
+      }
+    </div>
+
+    <div class="text-center" style="margin-top: 3.5rem;">
+      <a routerLink="/academics" class="btn btn-accent btn-lg academic-cta-btn">
+        <span>Explore Full Academics & Curriculum Details</span>
+        <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES PREVIEW (FRESH MODERN CAMPUS THEME WITH SWEEP LIGHT EFFECTS) -->
+<section class="section facilities-preview">
+  <div class="container">
+    <app-page-header
+      badge="Campus Facilities"
+      title="World-Class Learning Infrastructure"
+      subtitle="Engineered with care to ensure students have every resource necessary for academic inquiry, physical fitness, and creative expression.">
+    </app-page-header>
+
+    <div class="grid grid-2 facilities-grid">
+      @for (fac of facilities; track fac.id; let i = $index) {
+        <div class="card facility-card" [style.--fac-index]="i">
+          <div class="facility-image img-zoom-container">
+            <img [src]="fac.imageUrl" [alt]="fac.title" loading="lazy" />
+            <div class="facility-image-overlay">
+              <span class="facility-category-chip">Smart Campus</span>
+            </div>
+            <div class="image-shine-sweep"></div>
+          </div>
+          <div class="facility-body">
+            <h3 class="facility-title">{{ fac.title }}</h3>
+            <div class="facility-accent-line"></div>
+            <p class="facility-desc">{{ fac.shortDesc }}</p>
+            <ul class="facility-points">
+              @for (point of fac.features; track point) {
+                <li class="facility-point-item">
+                  <div class="point-icon-wrapper">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  </div>
+                  <span>{{ point }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="text-center" style="margin-top: 3.5rem;">
+      <a routerLink="/facilities" class="btn btn-secondary btn-lg facility-view-btn">
+        <span>View All 8+ Campus Facilities</span>
+        <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPUS LIFE / PHOTO GALLERY PREVIEW (MIDNIGHT GALLERY THEME WITH CINEMATIC HOVER) -->
+<section class="section gallery-preview-section">
+  <div class="gallery-ambient-glow glow-blue"></div>
+  <div class="gallery-ambient-glow glow-gold"></div>
+  <div class="container relative-z">
+    <app-page-header
+      badge="Campus Life"
+      title="Glimpses of Joy, Discovery & Celebration"
+      subtitle="Witness everyday moments of enthusiasm, laboratory experiments, sports victories, and cultural festivities."
+      theme="dark">
+    </app-page-header>
+
+    <div class="grid grid-3 gallery-grid">
+      @for (item of gallery; track item.id; let i = $index) {
+        <div class="gallery-item-card" [style.--gallery-index]="i">
+          <div class="gallery-img-wrapper img-zoom-container">
+            <img [src]="item.imageUrl" [alt]="item.title" loading="lazy" />
+            <div class="gallery-frame-shine"></div>
+            <div class="gallery-overlay">
+              <span class="gallery-cat-pill">{{ item.category }}</span>
+              <h4 class="gallery-title">{{ item.title }}</h4>
+              <span class="gallery-date">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+                <span>{{ item.date }}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="text-center" style="margin-top: 3.5rem;">
+      <a routerLink="/activities/photo-gallery" class="btn btn-outline-white btn-lg gallery-more-btn">
+        <span>Visit Complete Photo Gallery</span>
+        <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (WARM GOLDEN IVORY THEME WITH FLOATING QUOTE & SPARKLE STARS) -->
+<section class="section testimonials-section">
+  <div class="testimonial-ambient-orb orb-warm"></div>
+  <div class="container relative-z">
+    <app-page-header
+      badge="Parent & Alumni Voice"
+      title="Words of Trust & Appreciation"
+      subtitle="Hear what parents, guardians, and accomplished alumni say about their journey with Shri Bharath Kanna School.">
+    </app-page-header>
+
+    <div class="grid grid-3 testimonials-grid">
+      @for (t of testimonials; track t.id; let i = $index) {
+        <div class="card testimonial-card" [style.--test-index]="i">
+          <div class="quote-mark-watermark">“</div>
+          <div class="testimonial-stars">
+            @for (star of [1,2,3,4,5]; track star) {
+              <svg viewBox="0 0 20 20" fill="#F5B301" class="star-icon" [style.animation-delay]="(star * 120) + 'ms'">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            }
+          </div>
+          <p class="testimonial-quote">"{{ t.quote }}"</p>
+          <div class="testimonial-author">
+            <div class="avatar-ring">
+              <img [src]="t.avatar" [alt]="t.name" class="author-avatar" />
+            </div>
+            <div>
+              <h4 class="author-name">{{ t.name }}</h4>
+              <p class="author-role">{{ t.role }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS CTA SECTION -->
+<app-cta-section></app-cta-section>

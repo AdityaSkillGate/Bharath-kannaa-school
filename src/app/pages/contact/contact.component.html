@@ -1,0 +1,175 @@
+<app-hero-banner
+  badge="Connect With Us"
+  title="Contact Shri Bharath Kanna School"
+  subtitle="We are delighted to assist with your admission enquiries, campus visits, or general questions."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section contact-section">
+  <div class="container">
+    <!-- Info Cards Strip -->
+    <div class="grid grid-4 contact-info-cards">
+      <div class="card c-card">
+        <div class="c-icon-badge">📍</div>
+        <h4>Campus Address</h4>
+        <p>{{ info.address }}</p>
+      </div>
+      <div class="card c-card">
+        <div class="c-icon-badge">📞</div>
+        <h4>Phone Numbers</h4>
+        <p><a [href]="'tel:' + info.phone">{{ info.phone }}</a></p>
+        <p><a [href]="'tel:' + info.secondaryPhone">{{ info.secondaryPhone }}</a></p>
+      </div>
+      <div class="card c-card">
+        <div class="c-icon-badge">✉️</div>
+        <h4>Email Addresses</h4>
+        <p><a [href]="'mailto:' + info.email">{{ info.email }}</a></p>
+        <p><a [href]="'mailto:' + info.infoEmail">{{ info.infoEmail }}</a></p>
+      </div>
+      <div class="card c-card">
+        <div class="c-icon-badge">⏱️</div>
+        <h4>Office Timings</h4>
+        <p>{{ info.officeHours }}</p>
+      </div>
+    </div>
+
+    <!-- Contact Form & Map Grid -->
+    <div class="grid grid-2 contact-action-grid" style="margin-top: 3.5rem;">
+      <!-- Interactive Contact Form -->
+      <div class="card form-card">
+        <div class="form-badge">Get in Touch</div>
+        <h3>Send Us a Message</h3>
+        <p class="form-sub">Our admissions counseling office is available Monday through Saturday.</p>
+
+        <form #cForm="ngForm" (ngSubmit)="submitMessage(cForm)" class="contact-form-body">
+          <div class="form-group">
+            <label class="form-label">Your Full Name *</label>
+            <input
+              type="text"
+              name="name"
+              [(ngModel)]="contactForm.name"
+              required
+              #uName="ngModel"
+              class="form-control"
+              placeholder="e.g. R. Saravanan"
+            />
+            @if (uName.invalid && uName.touched) {
+              <span class="form-error">Full name is required.</span>
+            }
+          </div>
+
+          <div class="form-row grid-2">
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input
+                type="email"
+                name="email"
+                [(ngModel)]="contactForm.email"
+                required
+                email
+                #uEmail="ngModel"
+                class="form-control"
+                placeholder="name@domain.com"
+              />
+              @if (uEmail.invalid && uEmail.touched) {
+                <span class="form-error">Valid email is required.</span>
+              }
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mobile Number *</label>
+              <input
+                type="tel"
+                name="phone"
+                [(ngModel)]="contactForm.phone"
+                required
+                pattern="[0-9]{10}"
+                #uPhone="ngModel"
+                class="form-control"
+                placeholder="10-digit number"
+              />
+              @if (uPhone.invalid && uPhone.touched) {
+                <span class="form-error">Valid 10-digit number required.</span>
+              }
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Subject of Enquiry *</label>
+            <select
+              name="subject"
+              [(ngModel)]="contactForm.subject"
+              required
+              #uSub="ngModel"
+              class="form-control"
+            >
+              <option value="" disabled selected>Select Subject</option>
+              <option value="Admission Enquiry">Admission Enquiry (2025 - 2026)</option>
+              <option value="Campus Tour Booking">Schedule Campus Tour</option>
+              <option value="Transport Route Enquiry">School Bus Transport Routes</option>
+              <option value="Academic Verification">Academic / TC Verification</option>
+              <option value="Other Feedback">General Query / Feedback</option>
+            </select>
+            @if (uSub.invalid && uSub.touched) {
+              <span class="form-error">Please select an enquiry subject.</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your Message *</label>
+            <textarea
+              name="message"
+              [(ngModel)]="contactForm.message"
+              required
+              rows="4"
+              #uMsg="ngModel"
+              class="form-control"
+              placeholder="How can we assist you?"
+            ></textarea>
+            @if (uMsg.invalid && uMsg.touched) {
+              <span class="form-error">Message content cannot be empty.</span>
+            }
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" [disabled]="cForm.invalid">
+            <span>Send Direct Message</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Campus Location Card / Map -->
+      <div class="card map-card">
+        <div class="map-header">
+          <h3>Campus Location Map</h3>
+          <p>Easily accessible on the Sivakasi / Madurai State Highway with designated visitor parking.</p>
+        </div>
+
+        <div class="map-embed-container">
+          <iframe
+            title="School Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62963.26442654378!2d77.7719602!3d9.4532675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06cee138981f21%3A0xb3bc87e91d575c32!2sSivakasi%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="directions-help">
+          <div class="help-item">
+            <strong>Landmarks:</strong>
+            <span>Opposite Green Valley Residential Colony, Vidya Nagar Bypass.</span>
+          </div>
+          <div class="help-item">
+            <strong>Public Transport:</strong>
+            <span>Direct Town Buses available every 10 minutes from central bus terminal (Stop: Bharath Kanna School Stop).</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

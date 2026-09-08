@@ -1,0 +1,131 @@
+<app-hero-banner
+  badge="Work With Us"
+  title="Careers at Shri Bharath Kanna School"
+  subtitle="Join an exceptional community of passionate educators and inspire the next generation of achievers."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section careers-section">
+  <div class="container">
+    <div class="careers-intro-box card">
+      <div class="intro-content">
+        <h2>Why Build Your Teaching Career with SBKMHSS?</h2>
+        <p>
+          We take immense pride in providing our educators with competitive compensation, continuous pedagogical training, supportive administrative leadership, state-of-the-art smart classroom facilities, and a collaborative scholastic environment.
+        </p>
+        <div class="perks-row">
+          <span class="perk-badge">✓ Competitive Pay Scale</span>
+          <span class="perk-badge">✓ Free Transport Facility</span>
+          <span class="perk-badge">✓ Children Tuition Concession</span>
+          <span class="perk-badge">✓ Annual Performance Bonus</span>
+          <span class="perk-badge">✓ Continuous CPD Workshops</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CURRENT OPENINGS -->
+    <div class="section-header" style="margin-top: 4rem;">
+      <span class="section-badge">Vacancies</span>
+      <h2 class="section-title">Current Academic & Administrative Openings</h2>
+      <p class="section-subtitle">Explore open positions for the upcoming Academic Year 2025 - 2026.</p>
+    </div>
+
+    <div class="openings-list">
+      @for (job of openings; track job.id) {
+        <div class="card job-card">
+          <div class="job-main-info">
+            <div class="job-meta-row">
+              <span class="job-dept">{{ job.department }}</span>
+              <span class="job-type">{{ job.type }}</span>
+              <span class="job-vacancies">{{ job.vacancies }} Vacancy</span>
+            </div>
+            <h3 class="job-title">{{ job.role }}</h3>
+            <p class="job-req"><strong>Qualification:</strong> {{ job.qualification }}</p>
+            <p class="job-exp"><strong>Required Experience:</strong> {{ job.experience }}</p>
+          </div>
+          <div class="job-actions">
+            <button type="button" class="btn btn-primary" (click)="openApplication(job)">
+              Apply Online
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- GENERAL RESUME SUBMISSION -->
+    <div class="general-apply-strip card" style="margin-top: 3rem;">
+      <div>
+        <h4>Don't see a position matching your profile?</h4>
+        <p>Email your resume directly to our HR desk at <strong>{{ info.email }}</strong> and we will reach out when a suitable vacancy opens.</p>
+      </div>
+      <a [href]="'mailto:' + info.email + '?subject=Resume Submission for SBKMHSS'" class="btn btn-outline-primary">
+        Send Resume via Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION MODAL -->
+@if (applicationModalOpen && selectedOpening) {
+  <div class="modal-backdrop" (click)="closeApplication()">
+    <div class="modal-dialog card" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <span class="modal-subtitle">Applying for</span>
+          <h3 class="modal-title">{{ selectedOpening.role }}</h3>
+        </div>
+        <button type="button" class="modal-close-btn" (click)="closeApplication()">&times;</button>
+      </div>
+
+      <form #careerForm="ngForm" (ngSubmit)="submitApplication(careerForm)" class="modal-form">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input type="text" name="fullName" [(ngModel)]="applicant.fullName" required #fullNameField="ngModel" class="form-control" placeholder="e.g. Anand Kumar" />
+          @if (fullNameField.invalid && fullNameField.touched) {
+            <span class="form-error">Full name is required.</span>
+          }
+        </div>
+
+        <div class="form-row grid-2">
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" name="email" [(ngModel)]="applicant.email" required email #emailField="ngModel" class="form-control" placeholder="name@domain.com" />
+            @if (emailField.invalid && emailField.touched) {
+              <span class="form-error">Valid email is required.</span>
+            }
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mobile Number *</label>
+            <input type="tel" name="phone" [(ngModel)]="applicant.phone" required pattern="[0-9]{10}" #phoneField="ngModel" class="form-control" placeholder="10-digit phone number" />
+            @if (phoneField.invalid && phoneField.touched) {
+              <span class="form-error">Valid 10-digit number required.</span>
+            }
+          </div>
+        </div>
+
+        <div class="form-row grid-2">
+          <div class="form-group">
+            <label class="form-label">Highest Qualification *</label>
+            <input type="text" name="qualification" [(ngModel)]="applicant.qualification" required class="form-control" placeholder="e.g. M.Sc. Physics with B.Ed." />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Years of Experience *</label>
+            <input type="text" name="experienceYears" [(ngModel)]="applicant.experienceYears" required class="form-control" placeholder="e.g. 4 Years" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Brief Introduction / Key Strengths</label>
+          <textarea name="coverNote" [(ngModel)]="applicant.coverNote" rows="3" class="form-control" placeholder="Tell us about your teaching philosophy..."></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-primary" (click)="closeApplication()">Cancel</button>
+          <button type="submit" class="btn btn-accent" [disabled]="careerForm.invalid">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+}
+
+<app-cta-section></app-cta-section>

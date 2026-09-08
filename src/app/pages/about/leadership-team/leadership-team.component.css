@@ -1,0 +1,91 @@
+.exec-leaders-grid {
+  gap: 2.25rem;
+}
+
+.exec-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.exec-photo-wrapper {
+  height: 320px;
+}
+
+.exec-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.exec-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.exec-name {
+  font-size: 1.25rem;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.exec-role {
+  font-weight: 700;
+  color: var(--heading);
+  font-size: 0.92rem;
+  margin-bottom: 0.25rem;
+}
+
+.exec-qual {
+  font-size: 0.8rem;
+  color: var(--accent-dark);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.exec-bio {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Coordinators */
+.coords-grid {
+  gap: 1.5rem;
+}
+
+.coord-card {
+  border-left: 4px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.coord-badge {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.coord-name {
+  font-size: 1.1rem;
+  color: var(--heading);
+  margin-bottom: 0.25rem;
+}
+
+.coord-role {
+  font-size: 0.88rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.coord-exp {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border);
+}

@@ -1,0 +1,244 @@
+<app-hero-banner
+  badge="Admissions 2025 - 2026"
+  title="Admission Process & Enrollment"
+  subtitle="Embark on an inspiring educational expedition. Clear steps, transparent eligibility, and online registration."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section admissions-section">
+  <div class="container">
+    <div class="grid grid-2 admission-main-grid">
+      <!-- Left Column: Process & Requirements -->
+      <div class="admission-info-col">
+        <span class="section-badge">Roadmap to Admission</span>
+        <h2 class="section-title">Step-by-Step Admission Procedure</h2>
+        <p class="lead">
+          We welcome applications from motivated learners eager to be part of our dynamic academic, athletic, and moral community.
+        </p>
+
+        <!-- Steps Timeline -->
+        <div class="steps-timeline">
+          @for (s of steps; track s.step) {
+            <div class="timeline-step">
+              <div class="timeline-num">{{ s.step }}</div>
+              <div class="timeline-body">
+                <h4>{{ s.title }}</h4>
+                <p>{{ s.desc }}</p>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Required Documents Checklist -->
+        <div class="card docs-card" style="margin-top: 3rem;">
+          <h3 class="docs-title">Mandatory Documents Checklist</h3>
+          <ul class="docs-list">
+            @for (doc of requiredDocuments; track doc) {
+              <li>
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>{{ doc }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column: Online Admission Enquiry Form -->
+      <div class="admission-form-col">
+        <div class="card admission-form-card">
+          <div class="form-header-badge">Online Registration</div>
+          <h3>Admission Enquiry Form (2025 - 2026)</h3>
+          <p class="form-subtext">Fill in student details below and our admissions counseling team will contact you promptly.</p>
+
+          <form #admForm="ngForm" (ngSubmit)="submitEnquiry(admForm)" class="enquiry-form">
+            <div class="form-group">
+              <label class="form-label">Student's Full Name *</label>
+              <input
+                type="text"
+                name="studentName"
+                [(ngModel)]="enquiry.studentName"
+                required
+                #sName="ngModel"
+                class="form-control"
+                placeholder="Student's name as per birth certificate"
+              />
+              @if (sName.invalid && sName.touched) {
+                <span class="form-error">Student name is required.</span>
+              }
+            </div>
+
+            <div class="form-row grid-2">
+              <div class="form-group">
+                <label class="form-label">Parent / Guardian Name *</label>
+                <input
+                  type="text"
+                  name="parentName"
+                  [(ngModel)]="enquiry.parentName"
+                  required
+                  #pName="ngModel"
+                  class="form-control"
+                  placeholder="Parent / Guardian Name"
+                />
+                @if (pName.invalid && pName.touched) {
+                  <span class="form-error">Parent name is required.</span>
+                }
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Grade Applying For *</label>
+                <select
+                  name="gradeApplying"
+                  [(ngModel)]="enquiry.gradeApplying"
+                  required
+                  #grade="ngModel"
+                  class="form-control"
+                >
+                  <option value="" disabled selected>Select Grade</option>
+                  <option value="Pre-KG">Pre-KG</option>
+                  <option value="LKG">LKG</option>
+                  <option value="UKG">UKG</option>
+                  <option value="Grade 1">Grade 1</option>
+                  <option value="Grade 2">Grade 2</option>
+                  <option value="Grade 3">Grade 3</option>
+                  <option value="Grade 4">Grade 4</option>
+                  <option value="Grade 5">Grade 5</option>
+                  <option value="Grade 6">Grade 6</option>
+                  <option value="Grade 7">Grade 7</option>
+                  <option value="Grade 8">Grade 8</option>
+                  <option value="Grade 9">Grade 9</option>
+                  <option value="Grade 10">Grade 10</option>
+                  <option value="Grade 11 Bio-Maths">Grade 11 - Bio-Maths</option>
+                  <option value="Grade 11 CS-Maths">Grade 11 - Computer Science</option>
+                  <option value="Grade 11 Commerce">Grade 11 - Commerce</option>
+                </select>
+                @if (grade.invalid && grade.touched) {
+                  <span class="form-error">Please choose a grade.</span>
+                }
+              </div>
+            </div>
+
+            <div class="form-row grid-2">
+              <div class="form-group">
+                <label class="form-label">Contact Mobile Number *</label>
+                <input
+                  type="tel"
+                  name="contactPhone"
+                  [(ngModel)]="enquiry.contactPhone"
+                  required
+                  pattern="[0-9]{10}"
+                  #phone="ngModel"
+                  class="form-control"
+                  placeholder="10-digit mobile number"
+                />
+                @if (phone.invalid && phone.touched) {
+                  <span class="form-error">Valid 10-digit phone number is required.</span>
+                }
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input
+                  type="email"
+                  name="email"
+                  [(ngModel)]="enquiry.email"
+                  required
+                  email
+                  #emailField="ngModel"
+                  class="form-control"
+                  placeholder="parent.email@domain.com"
+                />
+                @if (emailField.invalid && emailField.touched) {
+                  <span class="form-error">Valid email address is required.</span>
+                }
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">City / Residential Area</label>
+              <input
+                type="text"
+                name="residenceCity"
+                [(ngModel)]="enquiry.residenceCity"
+                class="form-control"
+                placeholder="e.g. Sivakasi / Virudhunagar"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Queries / Any Special Remarks</label>
+              <textarea
+                name="notes"
+                [(ngModel)]="enquiry.notes"
+                rows="3"
+                class="form-control"
+                placeholder="Ask about bus routes, hostel, or extra-curricular facilities..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-accent btn-lg" style="width: 100%;" [disabled]="admForm.invalid">
+              <span>Submit Admission Enquiry</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGE ELIGIBILITY MATRIX & FEE INFORMATION -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="grid grid-2 info-tables-grid">
+      <!-- Age Eligibility -->
+      <div class="card">
+        <h3>Age Eligibility Matrix</h3>
+        <p class="table-sub">Age calculated as on 31st July of the admission academic year:</p>
+        <table class="eligibility-table">
+          <thead>
+            <tr>
+              <th>Class / Standard</th>
+              <th>Prescribed Age Criteria</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of eligibilityList; track row.grade) {
+              <tr>
+                <td><strong>{{ row.grade }}</strong></td>
+                <td>{{ row.minAge }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Transparent Fee Policy -->
+      <div class="card fee-policy-card">
+        <h3>Fee Structure & Guidelines</h3>
+        <p>
+          In strict compliance with the Tamil Nadu Private Schools Fee Determination Committee, our fees are transparent, highly competitive, and all-inclusive of standard lab facilities, sports equipment, and library resources.
+        </p>
+        <div class="fee-highlights">
+          <div class="fee-item">
+            <strong>Term Payment Flexibility:</strong>
+            <p>Tuition fees may be settled in 3 equal term installments across June, October, and January.</p>
+          </div>
+          <div class="fee-item">
+            <strong>Merit Scholarships:</strong>
+            <p>Students scoring 95%+ in Grade 10 Board examinations receive up to 50% tuition concession for Senior Secondary streams.</p>
+          </div>
+          <div class="fee-item">
+            <strong>Digital & Cashless Modes:</strong>
+            <p>Safe UPI, Net Banking, and parent mobile portal payment options available with instantaneous digital receipts.</p>
+          </div>
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <a routerLink="/mandatory-public-disclosure" class="btn btn-outline-primary btn-sm">
+            View Approved Fee Structure Schedule in MPD
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

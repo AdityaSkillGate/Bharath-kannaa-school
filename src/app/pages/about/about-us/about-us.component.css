@@ -1,0 +1,115 @@
+.about-story-grid {
+  gap: 4rem;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.about-visual .img-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 4px solid var(--white);
+}
+
+.about-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+}
+
+.frame-tag {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(11, 77, 162, 0.9);
+  color: var(--white);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Pillars */
+.pillars-grid {
+  gap: 1.75rem;
+}
+
+.pillar-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid var(--primary);
+}
+
+.pillar-card:hover {
+  border-top-color: var(--accent);
+}
+
+.pillar-number {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(11, 77, 162, 0.12);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.pillar-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.65rem;
+}
+
+.pillar-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Accreditation Strip */
+.accreditation-card {
+  background: linear-gradient(135deg, var(--primary) 0%, #1555a6 100%);
+  color: var(--white);
+  padding: 2rem 2.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.accreditation-icon svg {
+  width: 44px;
+  height: 44px;
+  color: var(--accent);
+}
+
+.accreditation-info {
+  flex: 1;
+}
+
+.accreditation-info h4 {
+  color: var(--white);
+  font-size: 1.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.accreditation-info p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+  }
+  .accreditation-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}

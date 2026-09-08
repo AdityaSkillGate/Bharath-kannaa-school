@@ -1,0 +1,70 @@
+.hero-banner {
+  position: relative;
+  background-color: var(--primary-dark);
+  color: var(--white);
+  padding: 4.5rem 0 3.5rem;
+  overflow: hidden;
+  border-bottom: 4px solid var(--accent);
+}
+
+.hero-banner-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  filter: saturate(1.2);
+}
+
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(26, 110, 216, 0.4) 0%, rgba(8, 55, 117, 0.95) 75%);
+}
+
+.hero-banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  background: rgba(245, 179, 1, 0.2);
+  border: 1px solid rgba(245, 179, 1, 0.5);
+  color: var(--light-accent);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  color: var(--white);
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle {
+  color: #cbd5e1;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  max-width: 720px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.hero-breadcrumb-wrapper {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hero-banner {
+    padding: 3rem 0 2.5rem;
+  }
+}

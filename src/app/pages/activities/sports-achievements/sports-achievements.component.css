@@ -1,0 +1,116 @@
+.sports-intro-grid {
+  gap: 3.5rem;
+}
+
+.sports-stat-box {
+  background: linear-gradient(135deg, var(--primary) 0%, #1555a6 100%);
+  color: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sports-stat-box h3 {
+  color: var(--accent);
+  font-size: 1.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 0.75rem;
+}
+
+.milestone-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.m-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.m-text {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+}
+
+/* Achievements */
+.achievements-grid {
+  gap: 2rem;
+}
+
+.ach-card {
+  border-left: 5px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ach-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ach-icon {
+  font-size: 1.8rem;
+}
+
+.ach-year {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.ach-badge {
+  margin-left: auto;
+  background: rgba(245, 179, 1, 0.2);
+  color: #92400e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.ach-event {
+  font-size: 1.2rem;
+  color: var(--heading);
+}
+
+.ach-detail {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Disciplines */
+.disciplines-grid {
+  gap: 1.5rem;
+}
+
+.discipline-card {
+  border-top: 3px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.discipline-card h4 {
+  font-size: 1.15rem;
+  color: var(--heading);
+}
+
+.disc-coach, .disc-facility {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .sports-intro-grid {
+    grid-template-columns: 1fr;
+  }
+}

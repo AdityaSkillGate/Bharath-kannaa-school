@@ -1,0 +1,52 @@
+<app-hero-banner
+  badge="Campus Discipline"
+  title="School Rules & Code of Regulations"
+  subtitle="Cultivating self-discipline, safety, and mutual respect across our educational ecosystem."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section rules-section">
+  <div class="container">
+    <app-page-header
+      badge="Standards of Conduct"
+      title="Institutional Policies & Code of Conduct"
+      subtitle="Designed to preserve a safe, focused, and harmonious academic sanctuary for every learner.">
+    </app-page-header>
+
+    <div class="grid grid-2 rules-grid">
+      @for (cat of ruleCategories; track cat.title) {
+        <div class="card rule-card">
+          <div class="rule-header">
+            <span class="rule-icon">{{ cat.icon }}</span>
+            <h3 class="rule-cat-title">{{ cat.title }}</h3>
+          </div>
+          <ul class="rules-point-list">
+            @for (p of cat.points; track p) {
+              <li>
+                <span class="rule-bullet">•</span>
+                <span>{{ p }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ZERO TOLERANCE CALLOUT -->
+<section class="section-sm zero-tolerance-section bg-light">
+  <div class="container">
+    <div class="card zero-tolerance-card">
+      <div class="zt-icon">🛡️</div>
+      <div class="zt-text">
+        <h4>Anti-Bullying & Child Safety Assurance</h4>
+        <p>
+          Shri Bharath Kanna School maintains an unyielding zero-tolerance framework against any form of intimidation, harassment, or verbal abuse. A designated Child Protection & Anti-Bullying Committee functions directly under the Principal's oversight.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

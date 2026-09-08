@@ -1,0 +1,80 @@
+/* Theme Accents & Institutional Styling */
+
+.school-accent-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  width: 100%;
+}
+
+.school-title-accent {
+  position: relative;
+  display: inline-block;
+}
+
+.school-title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+}
+
+.school-title-accent.center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(8, 55, 117, 0.92) 0%, rgba(11, 77, 162, 0.85) 60%, rgba(26, 110, 216, 0.7) 100%);
+}
+
+.stat-counter-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  border-bottom: 4px solid var(--primary);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.stat-counter-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-bottom-color: var(--accent);
+}
+
+.stat-counter-card .stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-counter-card .stat-label {
+  font-weight: 600;
+  color: var(--heading);
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.stat-counter-card .stat-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}

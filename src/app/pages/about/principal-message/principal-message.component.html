@@ -1,0 +1,64 @@
+<app-hero-banner
+  badge="Academic Leadership"
+  title="From the Principal's Desk"
+  subtitle="Cultivating intellectual rigor, analytical reasoning, and compassionate citizenship."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section leader-message-section">
+  <div class="container">
+    <div class="grid grid-2 message-layout">
+      <!-- Leader Portrait & Profile -->
+      <div class="leader-sidebar">
+        <div class="card leader-profile-card">
+          <div class="portrait-wrapper img-zoom-container">
+            <img [src]="leader.image" [alt]="leader.name" class="leader-photo" />
+          </div>
+          <div class="profile-meta">
+            <h3 class="leader-name">{{ leader.name }}</h3>
+            <p class="leader-role">{{ leader.role }}</p>
+            <span class="leader-qual">{{ leader.qualification }}</span>
+          </div>
+          @if (leader.quote) {
+            <blockquote class="leader-quote">
+              "{{ leader.quote }}"
+            </blockquote>
+          }
+        </div>
+      </div>
+
+      <!-- Full Message Text -->
+      <div class="message-content">
+        <span class="section-badge">Scholastic Leadership</span>
+        <h2 class="section-title">Guiding Students to the Zenith of Their Potential</h2>
+
+        <p class="lead">
+          "Pedagogical excellence is not simply measured by percentages on marksheets, but by the intellectual curiosity ignited, the moral character forged, and the courage instilled in each young heart."
+        </p>
+
+        <p>
+          At <strong>Shri Bharath Kanna Matriculation Higher Secondary School</strong>, we believe every child arrives on campus with boundless potential waiting to be awakened. Our role as mentors is to provide the fertile soil, the nurturing sunlight of encouragement, and the rigorous discipline of deep practice.
+        </p>
+
+        <p>
+          Our academic curriculum is thoughtfully sequenced. From phonics, tactile Montessori tools, and storytelling in early childhood, to advanced problem-solving, algorithmic thinking, and scientific experimentation in high school, we ensure continuous learning progression. Our teachers work tirelessly to ensure no student is left behind, organizing tailored remedial support alongside enrichment tracks for gifted learners.
+        </p>
+
+        <p>
+          Our continuous 100% board examination pass records and state ranks stand testament to the symbiotic partnership between our dedicated teachers, hardworking students, and supportive parents.
+        </p>
+
+        <p>
+          I welcome you to explore our vibrant campus, interact with our faculty, and discover how your child can blossom into a confident, responsible, and triumphant individual.
+        </p>
+
+        <div class="signature-block">
+          <p class="sign-name">Dr. K. Soundararajan, M.Sc., M.Phil., Ph.D., B.Ed.</p>
+          <p class="sign-title">Principal, SBKMHSS</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

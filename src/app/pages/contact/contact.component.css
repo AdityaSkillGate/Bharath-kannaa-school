@@ -1,0 +1,128 @@
+.contact-info-cards {
+  gap: 1.5rem;
+}
+
+.c-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 4px solid var(--primary);
+}
+
+.c-icon-badge {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.c-card h4 {
+  font-size: 1.1rem;
+  color: var(--heading);
+  margin-bottom: 0.5rem;
+}
+
+.c-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.c-card a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.c-card a:hover {
+  text-decoration: underline;
+}
+
+/* Action Grid */
+.contact-action-grid {
+  gap: 3rem;
+  align-items: start;
+}
+
+.form-card {
+  padding: 2.5rem;
+  border-left: 5px solid var(--primary);
+}
+
+.form-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(11, 77, 162, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.5rem;
+}
+
+.form-card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.form-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.contact-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Map Card */
+.map-card {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.map-header h3 {
+  font-size: 1.25rem;
+  color: var(--heading);
+  margin-bottom: 0.35rem;
+}
+
+.map-header p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.map-embed-container {
+  height: 320px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.directions-help {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+
+.help-item strong {
+  color: var(--primary);
+  display: block;
+}
+
+.help-item span {
+  color: var(--text-muted);
+}
+
+@media (max-width: 992px) {
+  .contact-action-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,58 @@
+<app-hero-banner
+  badge="Academic Mentors"
+  title="Our Leadership Team"
+  subtitle="Experienced administrators, pedagogical coordinators, and visionary leaders shaping our school's excellence."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section leaders-grid-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Executive Leadership</span>
+      <h2 class="section-title">Governing & Executive Heads</h2>
+      <p class="section-subtitle">Dedicated stalwarts leading institutional policy, infrastructure development, and overall academic rigor.</p>
+    </div>
+
+    <div class="grid grid-3 exec-leaders-grid">
+      @for (leader of leaders; track leader.name) {
+        <div class="card exec-card">
+          <div class="exec-photo-wrapper img-zoom-container">
+            <img [src]="leader.image" [alt]="leader.name" class="exec-img" />
+          </div>
+          <div class="exec-body">
+            <h3 class="exec-name">{{ leader.name }}</h3>
+            <p class="exec-role">{{ leader.role }}</p>
+            <span class="exec-qual">{{ leader.qualification }}</span>
+            <p class="exec-bio">{{ leader.bio }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMIC COORDINATORS -->
+<section class="section coordinators-section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Wing Incharges</span>
+      <h2 class="section-title">Academic Heads & Department Coordinators</h2>
+      <p class="section-subtitle">The experienced educators overseeing daily lesson planning, continuous assessment, and student mentoring.</p>
+    </div>
+
+    <div class="grid grid-3 coords-grid">
+      @for (coord of coordinators; track coord.name) {
+        <div class="card coord-card">
+          <div class="coord-badge">🎓</div>
+          <h4 class="coord-name">{{ coord.name }}</h4>
+          <p class="coord-role">{{ coord.role }}</p>
+          <div class="coord-exp">
+            <span>Experience: <strong>{{ coord.experience }}</strong></span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

@@ -1,0 +1,18 @@
+<div class="hero-banner">
+  <div class="hero-banner-bg" [style.background-image]="bgImage ? 'url(' + bgImage + ')' : null"></div>
+  <div class="hero-banner-overlay"></div>
+  <div class="container hero-banner-content">
+    @if (badge) {
+      <div class="hero-badge">
+        <span>{{ badge }}</span>
+      </div>
+    }
+    <h1 class="hero-title">{{ title }}</h1>
+    @if (subtitle) {
+      <p class="hero-subtitle">{{ subtitle }}</p>
+    }
+    <div class="hero-breadcrumb-wrapper">
+      <app-breadcrumb [items]="breadcrumbs"></app-breadcrumb>
+    </div>
+  </div>
+</div>

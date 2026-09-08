@@ -1,0 +1,87 @@
+<app-hero-banner
+  badge="Institutional Profile"
+  title="About Shri Bharath Kanna School"
+  subtitle="Sculpting intellect, moral courage, and holistic excellence in education since 1998."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section about-main-section">
+  <div class="container">
+    <div class="grid grid-2 about-story-grid items-center">
+      <div class="about-text">
+        <span class="section-badge">Our Genesis & Legacy</span>
+        <h2 class="section-title">A Quarter Century of <span class="highlight">Unwavering Commitment</span> to Youth</h2>
+        <p class="lead">
+          Established in 1998 by visionaries devoted to education, <strong>Shri Bharath Kanna Matriculation Higher Secondary School</strong> has grown from a humble institution into one of the state's most revered centers of scholastic achievement.
+        </p>
+        <p>
+          Situated in an expansive, verdant campus, the school was created with a clear objective: to bring metropolitan standards of academic quality, science laboratory infrastructure, and modern technology to our region while keeping tuition fees accessible to every aspiring family.
+        </p>
+        <p>
+          Over the past 25 years, our alumni have distinguished themselves as doctors, software architects, civil servants, entrepreneurs, and researchers globally. Today, with more than 2,500 students and 120 dedicated teachers, we continue to uphold that sacred commitment.
+        </p>
+      </div>
+
+      <div class="about-visual">
+        <div class="img-frame">
+          <img src="https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80" alt="School Academic Block" class="about-img" />
+          <div class="frame-tag">Main Academic Block</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE PILLARS SECTION -->
+<section class="section pillars-section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Foundational Pillars</span>
+      <h2 class="section-title">The Cornerstones of Our Educational Ethos</h2>
+      <p class="section-subtitle">Our pedagogical philosophy is built on four core pillars that guide our curriculum, teacher mentorship, and campus life.</p>
+    </div>
+
+    <div class="grid grid-4 pillars-grid">
+      <div class="card pillar-card">
+        <div class="pillar-number">01</div>
+        <h3 class="pillar-title">Academic Rigor</h3>
+        <p class="pillar-desc">Deep conceptual mastery, analytical problem solving, and personalized student support ensuring 100% board results year after year.</p>
+      </div>
+      <div class="card pillar-card">
+        <div class="pillar-number">02</div>
+        <h3 class="pillar-title">Character & Values</h3>
+        <p class="pillar-desc">Inculcating empathy, cultural reverence, civic duty, integrity, and sportsmanship as the true markers of genuine success.</p>
+      </div>
+      <div class="card pillar-card">
+        <div class="pillar-number">03</div>
+        <h3 class="pillar-title">Experiential Learning</h3>
+        <p class="pillar-desc">Transforming theory into reality through cutting-edge STEM labs, robotics clubs, interactive 4K displays, and field research.</p>
+      </div>
+      <div class="card pillar-card">
+        <div class="pillar-number">04</div>
+        <h3 class="pillar-title">Holistic Growth</h3>
+        <p class="pillar-desc">Fostering well-rounded athletes, public orators, artists, and musicians through competitive sports and cultural avenues.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AFFILIATION & COMPLIANCE BADGE STRIP -->
+<section class="section-sm accreditation-strip">
+  <div class="container">
+    <div class="accreditation-card">
+      <div class="accreditation-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="accreditation-info">
+        <h4>State Government Recognition & Regulatory Affiliation</h4>
+        <p>Recognized by Directorate of Matriculation Schools, Department of School Education, Govt. of Tamil Nadu (Reg. No: {{ info.recognitionCode }}). Compliant with all statutory building, fire, and sanitation safety codes.</p>
+      </div>
+      <a routerLink="/mandatory-public-disclosure" class="btn btn-outline-white btn-sm">
+        <span>Verify Disclosures</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

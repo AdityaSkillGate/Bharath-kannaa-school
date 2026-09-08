@@ -1,0 +1,61 @@
+<app-hero-banner
+  badge="Visual Chronicle"
+  title="School Photo Gallery"
+  subtitle="Capturing memorable milestones, scientific curiosity, sporting triumphs, and vibrant campus life."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section gallery-section">
+  <div class="container">
+    <!-- Category Filter Tabs -->
+    <div class="filter-tabs-wrapper">
+      @for (cat of categories; track cat.value) {
+        <button
+          type="button"
+          class="filter-tab"
+          [class.active]="activeCategory() === cat.value"
+          (click)="setCategory(cat.value)">
+          {{ cat.label }}
+        </button>
+      }
+    </div>
+
+    <!-- Photos Grid -->
+    <div class="grid grid-3 gallery-mosaic">
+      @for (photo of filteredPhotos(); track photo.id) {
+        <div class="gallery-card card" (click)="openLightbox(photo)">
+          <div class="gallery-card-img img-zoom-container">
+            <img [src]="photo.imageUrl" [alt]="photo.title" loading="lazy" />
+            <div class="gallery-card-hover">
+              <span class="hover-zoom-icon">🔍 View High-Res</span>
+            </div>
+          </div>
+          <div class="gallery-card-info">
+            <div class="gallery-card-meta">
+              <span class="badge-cat">{{ photo.category }}</span>
+              <span class="badge-date">{{ photo.date }}</span>
+            </div>
+            <h3 class="gallery-card-title">{{ photo.title }}</h3>
+            <p class="gallery-card-caption">{{ photo.caption }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX MODAL -->
+@if (selectedPhoto()) {
+  <div class="lightbox-overlay" (click)="closeLightbox()">
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <button type="button" class="lightbox-close" (click)="closeLightbox()">&times;</button>
+      <img [src]="selectedPhoto()!.imageUrl" [alt]="selectedPhoto()!.title" class="lightbox-img" />
+      <div class="lightbox-caption-bar">
+        <h4>{{ selectedPhoto()!.title }}</h4>
+        <p>{{ selectedPhoto()!.caption }}</p>
+      </div>
+    </div>
+  </div>
+}
+
+<app-cta-section></app-cta-section>

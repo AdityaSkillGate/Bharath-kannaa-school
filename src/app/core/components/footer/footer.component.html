@@ -1,0 +1,133 @@
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container footer-grid">
+      <!-- Column 1: School Profile -->
+      <div class="footer-col footer-col-brand">
+        <div class="footer-brand">
+          <div class="footer-crest">
+            <svg viewBox="0 0 48 48" class="crest-svg">
+              <circle cx="24" cy="24" r="23" fill="#0B4DA2" stroke="#F5B301" stroke-width="2"/>
+              <path d="M24 7 L37 13 L37 27 C37 34 24 41 24 41 C24 41 11 34 11 27 L11 13 Z" fill="#1A6ED8" stroke="#FFD56A" stroke-width="1.5"/>
+              <path d="M17 24 C20 22 24 23 24 23 C24 23 28 22 31 24 L31 31 C28 29 24 30 24 30 C24 30 20 29 17 31 Z" fill="#FFFFFF"/>
+              <path d="M24 14 C25.5 17 27 18 26 21 C25 21 24 19 24 19 C24 19 23 21 22 21 C21 18 22.5 17 24 14 Z" fill="#F5B301"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="footer-brand-title">Shri Bharath Kanna</h3>
+            <p class="footer-brand-subtitle">Matric. Hr. Sec. School</p>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Committed to sculpting self-disciplined, knowledgeable, compassionate, and visionary young leaders since 1998 through exceptional holistic education.
+        </p>
+        <div class="footer-badges">
+          <span class="footer-pill">Reg. Code: {{ info.recognitionCode }}</span>
+          <span class="footer-pill">Govt. Recognized</span>
+        </div>
+        <div class="footer-socials">
+          <a [href]="info.social.facebook" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a [href]="info.social.youtube" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33zM9.75 15.02l-.01-6.54 5.68 3.27z"/></svg>
+          </a>
+          <a [href]="info.social.instagram" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3.2"/><path d="M9 2h6a7 7 0 0 1 7 7v6a7 7 0 0 1-7 7H9a7 7 0 0 1-7-7V9a7 7 0 0 1 7-7zm6 2H9a5 5 0 0 0-5 5v6a5 5 0 0 0 5 5h6a5 5 0 0 0 5-5V9a5 5 0 0 0-5-5zm2.5 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+          </a>
+          <a [href]="info.social.linkedin" target="_blank" rel="noopener noreferrer" class="social-circle" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a routerLink="/about/about-us">About Our Institution</a></li>
+          <li><a routerLink="/about/why-choose-us">Why Choose SBKMHSS</a></li>
+          <li><a routerLink="/about/vision-mission">Vision, Mission & Values</a></li>
+          <li><a routerLink="/about/chairman-message">Chairman's Address</a></li>
+          <li><a routerLink="/about/principal-message">Principal's Desk</a></li>
+          <li><a routerLink="/about/our-trust">Governance & Trust</a></li>
+          <li><a routerLink="/about/careers">Faculty Career Openings</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Academics & Activities -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Academics & Campus</h4>
+        <ul class="footer-links">
+          <li><a routerLink="/academics">Curriculum & Methodology</a></li>
+          <li><a routerLink="/admissions/admissions">Admission Guidelines 2025</a></li>
+          <li><a routerLink="/facilities">Smart Classrooms & Labs</a></li>
+          <li><a routerLink="/activities/student-development">Student Clubs & Coding</a></li>
+          <li><a routerLink="/activities/sports-achievements">Sports & Athletics Meet</a></li>
+          <li><a routerLink="/activities/photo-gallery">Campus Photo Gallery</a></li>
+          <li><a routerLink="/mandatory-public-disclosure">Mandatory Public Disclosure</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact Info -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Campus Address</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            <span>{{ info.address }}</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div>
+              <p>{{ info.phone }}</p>
+              <p>{{ info.secondaryPhone }}</p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>{{ info.email }}</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="f-icon">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>{{ info.officeHours }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="footer-bottom">
+    <div class="container footer-bottom-container">
+      <p class="copyright-text">
+        &copy; {{ currentYear }} {{ info.name }}. All Rights Reserved. Recognized by Government of Tamil Nadu.
+      </p>
+      <div class="footer-bottom-links">
+        <!-- <a routerLink="/admissions/rules-regulations">Rules & Conduct</a>
+        <span>|</span>
+        <a routerLink="/admissions/parents-corner">Parent Handbook</a>
+        <span>|</span>
+        <a routerLink="/mandatory-public-disclosure">CBSE/Matric Disclosures</a> -->
+        <a href="https://adityaskillgate.com/"><span style="color: #f5b301;">Design By Aditya Skill Gate IT Solution</span></a>
+        <span>|</span>
+        <button type="button" class="back-to-top" (click)="scrollToTop()" aria-label="Back to top">
+          <span>Top</span>
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>

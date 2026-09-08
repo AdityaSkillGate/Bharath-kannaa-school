@@ -1,0 +1,12 @@
+<div class="page-header" [class.text-left]="align === 'left'" [class.is-dark]="theme === 'dark'">
+  @if (badge) {
+    <div class="header-badge">
+      <span>{{ badge }}</span>
+    </div>
+  }
+  <h2 class="header-title">{{ title }}</h2>
+  @if (subtitle) {
+    <p class="header-subtitle">{{ subtitle }}</p>
+  }
+  <div class="header-divider" [class.divider-left]="align === 'left'"></div>
+</div>

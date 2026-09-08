@@ -1,0 +1,58 @@
+/* Responsive Rules */
+
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 72px;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .section {
+    padding-block: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+    --topbar-height: 38px;
+  }
+
+  .section {
+    padding-block: 3.5rem;
+  }
+
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-lg {
+    padding: 0.9rem 1.6rem;
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding-inline: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .btn-group-mobile-stack {
+    flex-direction: column;
+    width: 100%;
+  }
+}

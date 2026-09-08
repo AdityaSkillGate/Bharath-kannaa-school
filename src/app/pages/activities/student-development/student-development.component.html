@@ -1,0 +1,90 @@
+<app-hero-banner
+  badge="Co-Curricular Life"
+  title="Student Development & Co-Curricular Clubs"
+  subtitle="Nurturing passion, social leadership, and multifaceted talents beyond standard textbook frontiers."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section clubs-section">
+  <div class="container">
+    <app-page-header
+      badge="Passions & Interests"
+      title="Dynamic Student Clubs & Societies"
+      subtitle="Students select from an eclectic array of student-led clubs that meet twice a week under faculty mentors.">
+    </app-page-header>
+
+    <div class="grid grid-3 clubs-grid">
+      @for (club of clubs; track club.name) {
+        <div class="card club-card">
+          <div class="club-icon-circle">{{ club.icon }}</div>
+          <h3 class="club-title">{{ club.name }}</h3>
+          <p class="club-desc">{{ club.desc }}</p>
+
+          <div class="club-activities-block">
+            <h5>Core Focus:</h5>
+            <ul>
+              @for (act of club.activities; track act) {
+                <li>• {{ act }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP PROGRAMS SECTION -->
+<section class="section leadership-dev-section bg-light">
+  <div class="container">
+    <div class="grid grid-2 lead-dev-grid items-center">
+      <div>
+        <span class="section-badge">Student Governance</span>
+        <h2 class="section-title">Democratic Student Council & House System</h2>
+        <p class="lead">
+          Leadership is not taught by lecture; it is cultivated through active stewardship, democratic responsibility, and collective teamwork.
+        </p>
+        <p>
+          Every academic year, students democratically elect the School Head Boy, Head Girl, Sports Captain, Cultural Secretary, and House Prefects across our four spirited houses: <strong>Emerald, Ruby, Sapphire, and Topaz</strong>.
+        </p>
+        <p>
+          Prefects lead morning assemblies, organize intra-school literary fests, maintain corridor discipline, and act as empathetic mediators for peer conflict resolution.
+        </p>
+      </div>
+
+      <div class="card houses-card">
+        <h3>The Four Houses of SBKMHSS</h3>
+        <div class="house-item emerald">
+          <div class="house-badge">🟢</div>
+          <div>
+            <h4>Emerald House</h4>
+            <p>Motto: <em>Harmony, Growth & Perseverance</em></p>
+          </div>
+        </div>
+        <div class="house-item ruby">
+          <div class="house-badge">🔴</div>
+          <div>
+            <h4>Ruby House</h4>
+            <p>Motto: <em>Courage, Passion & Victory</em></p>
+          </div>
+        </div>
+        <div class="house-item sapphire">
+          <div class="house-badge">🔵</div>
+          <div>
+            <h4>Sapphire House</h4>
+            <p>Motto: <em>Truth, Wisdom & Loyalty</em></p>
+          </div>
+        </div>
+        <div class="house-item topaz">
+          <div class="house-badge">🟡</div>
+          <div>
+            <h4>Topaz House</h4>
+            <p>Motto: <em>Brilliance, Optimism & Service</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

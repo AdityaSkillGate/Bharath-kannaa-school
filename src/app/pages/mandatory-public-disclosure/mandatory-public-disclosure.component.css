@@ -1,0 +1,71 @@
+.disclosure-card {
+  padding: 2.25rem;
+  border-top: 4px solid var(--primary);
+}
+
+.d-header {
+  margin-bottom: 1.5rem;
+}
+
+.d-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(11, 77, 162, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.4rem;
+}
+
+.d-header h3 {
+  font-size: 1.35rem;
+  color: var(--heading);
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.disclosure-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.disclosure-table th, .disclosure-table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.disclosure-table th {
+  background: #f8fafc;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.category-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: #f1f5f9;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.pass-cent {
+  color: #15803d;
+  font-weight: 700;
+}
+
+.sub-table-title {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+  border-left: 3px solid var(--accent);
+}

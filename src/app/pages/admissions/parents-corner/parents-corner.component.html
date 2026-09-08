@@ -1,0 +1,71 @@
+<app-hero-banner
+  badge="Parent Community"
+  title="Parents' Corner & Handbook"
+  subtitle="Essential schedules, PTA coordination, communication portals, uniform norms, and student wellness support."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section timings-section">
+  <div class="container">
+    <app-page-header
+      badge="Daily Schedule"
+      title="School Working Hours & Bell Timings"
+      subtitle="Punctuality is a virtue practiced with diligence. Gates close promptly 10 minutes prior to morning assembly.">
+    </app-page-header>
+
+    <div class="grid grid-2 timings-grid">
+      @for (t of timings; track t.wing) {
+        <div class="card timing-card">
+          <div class="t-badge">⏰</div>
+          <h4 class="t-wing">{{ t.wing }}</h4>
+          <p class="t-days"><strong>Working Days:</strong> {{ t.days }}</p>
+          <p class="t-hours"><strong>Timings:</strong> {{ t.hours }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- UNIFORM GUIDELINES -->
+<section class="section uniform-section bg-light">
+  <div class="container">
+    <div class="grid grid-2 uniform-grid items-center">
+      <div>
+        <span class="section-badge">Neatness & Decorum</span>
+        <h2 class="section-title">Uniform & Personal Appearance Code</h2>
+        <p class="lead">
+          Our school uniform fosters unity, equality, and institutional pride. All students are expected to report in clean, well-pressed uniforms.
+        </p>
+
+        <div class="uniform-schedule">
+          @for (u of uniformGuidelines; track u.day) {
+            <div class="card u-card">
+              <h4 class="u-day">{{ u.day }}</h4>
+              <p class="u-dress">{{ u.dress }}</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="card pta-card">
+        <h3>Parent-Teacher Association (PTA)</h3>
+        <p>
+          The PTA functions as an active collaborative forum connecting parents and school leadership. General Body meetings convene once each term to review student welfare, academic progress, and infrastructural innovations.
+        </p>
+
+        <div class="pta-links-list">
+          <div class="pta-item">
+            <strong>Parent Mobile ERP App:</strong>
+            <p>Download our official mobile app on Google Play / Apple App Store for real-time attendance alerts, fee receipts, digital diary notes, and teacher messaging.</p>
+          </div>
+          <div class="pta-item">
+            <strong>Principal Visiting Hours:</strong>
+            <p>Monday to Friday: 3:30 PM – 4:30 PM (Prior appointment via office desk recommended).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

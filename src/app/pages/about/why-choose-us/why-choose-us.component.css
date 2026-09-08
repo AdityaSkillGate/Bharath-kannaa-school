@@ -1,0 +1,270 @@
+.why-main-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+/* Ambient Floating Glow Blobs */
+.why-glow {
+  position: absolute;
+  border-radius: var(--radius-full);
+  filter: blur(75px);
+  pointer-events: none;
+  opacity: 0.45;
+  z-index: 1;
+}
+
+.why-glow-1 {
+  top: -80px;
+  right: -50px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(26, 110, 216, 0.25) 0%, rgba(11, 77, 162, 0.08) 70%, transparent 100%);
+  animation: floatAmbient1 8s ease-in-out infinite alternate;
+}
+
+.why-glow-2 {
+  bottom: -60px;
+  left: -60px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(245, 179, 1, 0.22) 0%, rgba(255, 213, 106, 0.08) 70%, transparent 100%);
+  animation: floatAmbient2 9s ease-in-out infinite alternate;
+}
+
+@keyframes floatAmbient1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-35px, 30px) scale(1.15); }
+}
+
+@keyframes floatAmbient2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -25px) scale(1.1); }
+}
+
+.relative-content {
+  position: relative;
+  z-index: 2;
+}
+
+.features-grid {
+  gap: 2rem;
+}
+
+@keyframes cardStaggerEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.choose-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.25rem 2rem 1.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 15px -2px rgba(15, 23, 42, 0.05);
+  animation: cardStaggerEntrance 0.65s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--card-index, 0) * 110ms);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+}
+
+.choose-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(11, 77, 162, 0.18),
+              0 0 25px rgba(245, 179, 1, 0.22);
+  border-color: rgba(245, 179, 1, 0.55);
+}
+
+.card-accent-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  opacity: 0.25;
+  transition: opacity 0.35s ease, height 0.35s ease;
+}
+
+.choose-card:hover .card-accent-line {
+  opacity: 1;
+  height: 5px;
+}
+
+.card-watermark-number {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: rgba(11, 77, 162, 0.06);
+  line-height: 1;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.choose-card:hover .card-watermark-number {
+  color: rgba(245, 179, 1, 0.35);
+  transform: scale(1.12) translateY(-2px);
+}
+
+.card-icon-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.35rem;
+  position: relative;
+  z-index: 2;
+}
+
+.icon-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(11, 77, 162, 0.07);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(11, 77, 162, 0.12);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.c-icon {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.choose-card:hover .icon-circle {
+  transform: scale(1.12) rotate(-5deg);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px -3px rgba(11, 77, 162, 0.45);
+}
+
+.choose-card:hover .c-icon {
+  transform: scale(1.08);
+}
+
+@keyframes badgeShimmer {
+  0% { background-position: -120% 0; }
+  100% { background-position: 220% 0; }
+}
+
+.choose-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #854d0e;
+  background: linear-gradient(90deg, rgba(245, 179, 1, 0.18) 0%, rgba(255, 213, 106, 0.5) 50%, rgba(245, 179, 1, 0.18) 100%);
+  background-size: 200% 100%;
+  animation: badgeShimmer 3.5s ease-in-out infinite;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(245, 179, 1, 0.45);
+  box-shadow: 0 2px 6px rgba(245, 179, 1, 0.15);
+}
+
+.choose-title {
+  font-size: 1.25rem;
+  color: var(--heading);
+  margin-bottom: 0.45rem;
+  transition: color 0.3s ease;
+}
+
+.choose-card:hover .choose-title {
+  color: var(--primary);
+}
+
+.feature-title-bar {
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--secondary) 100%);
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.choose-card:hover .feature-title-bar {
+  width: 50px;
+}
+
+.choose-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.choose-card-footer {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.card-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+}
+
+.learn-arrow {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.3s ease;
+}
+
+.choose-card:hover .card-learn-more {
+  color: var(--secondary);
+}
+
+.choose-card:hover .learn-arrow {
+  transform: translateX(6px);
+}
+
+/* Comparison Table */
+.comparison-table-wrapper {
+  overflow-x: auto;
+  padding: 0;
+}
+
+.comparison-table th, .comparison-table td {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.comparison-table th {
+  background: #f8fafc;
+  color: var(--heading);
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.comparison-table th.highlight-col,
+.comparison-table td.highlight-col {
+  background: rgba(11, 77, 162, 0.04);
+  color: var(--primary);
+  font-weight: 600;
+}

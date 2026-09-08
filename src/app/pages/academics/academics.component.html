@@ -1,0 +1,194 @@
+<app-hero-banner
+  badge="Scholastic Framework"
+  title="Academics at Shri Bharath Kanna School"
+  subtitle="A dynamic, inquiry-driven curriculum fostering intellectual curiosity, conceptual rigor, and 21st-century competencies."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<!-- CURRICULUM OVERVIEW -->
+<section class="section curriculum-section">
+  <div class="container">
+    <div class="grid grid-2 curriculum-intro-grid items-center">
+      <div>
+        <span class="section-badge">Academic Pedagogy</span>
+        <h2 class="section-title">An Integrated, Future-Ready Educational Model</h2>
+        <p class="lead">
+          Our curriculum aligns with the rigorous standards of the Tamil Nadu Directorate of Matriculation Schools while embracing modern CBSE pedagogical principles of experiential and competency-based education.
+        </p>
+        <p>
+          We depart decisively from traditional rote memorization. At Shri Bharath Kanna School, concepts in science, mathematics, and linguistics are introduced through tangible experiments, collaborative problem-solving, digital visualizations, and real-world case studies.
+        </p>
+        <p>
+          English is the medium of instruction, enriched with robust fluency in Tamil and Hindi, fostering trilingual cultural agility and clear articulation.
+        </p>
+      </div>
+
+      <div class="card curriculum-pillars-card">
+        <h3>Scholastic Triad</h3>
+        <div class="triad-item">
+          <span class="triad-num">01</span>
+          <div>
+            <h4>Conceptual Clarity</h4>
+            <p>Deep foundational understanding of principles rather than superficial exam cramming.</p>
+          </div>
+        </div>
+        <div class="triad-item">
+          <span class="triad-num">02</span>
+          <div>
+            <h4>Experiential Application</h4>
+            <p>Immediate hands-on testing in dedicated Physics, Chemistry, Biology, and Math laboratories.</p>
+          </div>
+        </div>
+        <div class="triad-item">
+          <span class="triad-num">03</span>
+          <div>
+            <h4>Continuous Diagnostic Feedback</h4>
+            <p>Frequent, low-stress assessments identifying learning gaps for personalized teacher remediation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING METHODOLOGY -->
+<section class="section methodology-section bg-light">
+  <div class="container">
+    <app-page-header
+      badge="Pedagogical Approach"
+      title="Innovative Teaching Methodologies"
+      subtitle="How our teachers transform conventional classrooms into stimulating incubators of discovery.">
+    </app-page-header>
+
+    <div class="grid grid-3 method-grid">
+      <div class="card method-card">
+        <div class="method-icon">💡</div>
+        <h3>Inquiry-Driven Instruction</h3>
+        <p>Encouraging students to ask 'why' and 'how'. Teachers facilitate guided questions rather than merely delivering one-way lectures.</p>
+      </div>
+      <div class="card method-card">
+        <div class="method-icon">🖥️</div>
+        <h3>Smart Hybrid Multimedia</h3>
+        <p>Interactive 4K digital whiteboards in every room allow complex 3D biology animations and dynamic math graphs to be visualized effortlessly.</p>
+      </div>
+      <div class="card method-card">
+        <div class="method-icon">🔬</div>
+        <h3>STEM & Practical Rigor</h3>
+        <p>Weekly laboratory periods starting from middle school where students handle apparatus, record data, and develop scientific inquiry.</p>
+      </div>
+      <div class="card method-card">
+        <div class="method-icon">👥</div>
+        <h3>Peer Collaborative Projects</h3>
+        <p>Team assignments fostering communication, empathetic leadership, task delegation, and healthy constructive debate.</p>
+      </div>
+      <div class="card method-card">
+        <div class="method-icon">🎯</div>
+        <h3>Differentiated Remediation</h3>
+        <p>Special after-school remedial clinics for students who need extra practice, coupled with advanced Olympiad guidance for fast learners.</p>
+      </div>
+      <div class="card method-card">
+        <div class="method-icon">📚</div>
+        <h3>Library & Research Integration</h3>
+        <p>Scheduled research hours encouraging independent reading, book reviews, and thesis presentation from Grade 8 onwards.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMIC WINGS (PRIMARY, MIDDLE, SECONDARY, SENIOR SEC) -->
+<section class="section wings-detail-section">
+  <div class="container">
+    <app-page-header
+      badge="Academic Levels"
+      title="Progressive Learning Wings"
+      subtitle="Structured stages that gently transition children from sensory kindergarten discovery to confident high school mastery.">
+    </app-page-header>
+
+    <div class="wings-stack">
+      @for (wing of wings; track wing.title; let idx = $index) {
+        <div class="card wing-detail-card">
+          <div class="wing-side-badge">
+            <span class="wing-step">Stage 0{{ idx + 1 }}</span>
+            <span class="wing-grades-badge">{{ wing.grades }}</span>
+          </div>
+          <div class="wing-content">
+            <h3 class="wing-name">{{ wing.title }}</h3>
+            <span class="wing-meta">Target Age: {{ wing.ageGroup }} &bull; Core Focus: {{ wing.focus }}</span>
+            <p class="wing-description">{{ wing.description }}</p>
+
+            <div class="wing-points-row">
+              @for (h of wing.highlights; track h) {
+                <span class="h-chip">✓ {{ h }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- SENIOR SECONDARY STREAMS -->
+<section class="section streams-section bg-light">
+  <div class="container">
+    <app-page-header
+      badge="Grades 11 & 12"
+      title="Senior Secondary Stream Specializations"
+      subtitle="Specialized academic groups designed as career launchpads with integrated competitive examination mentoring.">
+    </app-page-header>
+
+    <div class="grid grid-2 streams-grid">
+      @for (stream of streamsSeniorSec; track stream.group) {
+        <div class="card stream-card">
+          <h3 class="stream-title">{{ stream.group }}</h3>
+          <div class="stream-block">
+            <h4 class="block-label">Subjects Included:</h4>
+            <div class="subject-tags">
+              @for (sub of stream.subjects; track sub) {
+                <span class="subject-tag">{{ sub }}</span>
+              }
+            </div>
+          </div>
+          <div class="stream-block">
+            <h4 class="block-label">Future Career Pathways:</h4>
+            <ul class="career-list">
+              @for (c of stream.careers; track c) {
+                <li>→ {{ c }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ASSESSMENT & EVALUATION SYSTEM -->
+<section class="section assessment-section">
+  <div class="container">
+    <div class="card assessment-box">
+      <span class="section-badge">Evaluation Policy</span>
+      <h2>Continuous & Comprehensive Assessment (CCE) System</h2>
+      <p>
+        We assess student capability with balanced, multi-dimensional evaluation criteria that honor both knowledge acquisition and practical skills:
+      </p>
+
+      <div class="grid grid-3 eval-grid" style="margin-top: 2rem;">
+        <div class="eval-card">
+          <h4>Formative Assessments (FA)</h4>
+          <p>Classroom participation, laboratory notebooks, project presentations, oral fluency, and weekly chapter quizzes (40% weightage).</p>
+        </div>
+        <div class="eval-card">
+          <h4>Summative Term Exams (SA)</h4>
+          <p>Mid-Term, Quarterly, Half-Yearly, and Annual Board-format written evaluations testing conceptual synthesis (60% weightage).</p>
+        </div>
+        <div class="eval-card">
+          <h4>Parent PTM Feedback</h4>
+          <p>Regular one-on-one parent-teacher consultations with detailed diagnostic scorecards tracking trends across terms.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

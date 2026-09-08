@@ -1,0 +1,91 @@
+<app-hero-banner
+  badge="Athletic Glory"
+  title="Sports & Achievements"
+  subtitle="Champions on the field, champions in life. Fostering stamina, tenacity, and triumphant teamwork."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<!-- SPORTS FACILITIES & PROGRAM -->
+<section class="section sports-intro-section">
+  <div class="container">
+    <div class="grid grid-2 sports-intro-grid items-center">
+      <div>
+        <span class="section-badge">Physical Education</span>
+        <h2 class="section-title">A Tradition of Sporting Rigor & Athletic Fitness</h2>
+        <p class="lead">
+          At Shri Bharath Kanna School, physical education is not an afterthought; it is an integral pillar of mental vigor and emotional well-being.
+        </p>
+        <p>
+          Our expansive sports grounds provide specialized courts and professional coaching for multiple sporting disciplines. Daily morning fitness routines, after-school academy coaching, and yoga sessions guarantee that every student cultivates stamina, speed, agility, and unbreakable sportsmanship.
+        </p>
+        <p>
+          We also take immense pride in promoting native martial arts like <strong>Silambam</strong> alongside contemporary Olympic disciplines.
+        </p>
+      </div>
+
+      <div class="card sports-stat-box">
+        <h3>Our Sporting Milestones</h3>
+        <div class="milestone-item">
+          <span class="m-num">45+</span>
+          <span class="m-text">State & District Medals Won in 2024-25</span>
+        </div>
+        <div class="milestone-item">
+          <span class="m-num">6</span>
+          <span class="m-text">Dedicated Full-Time Certified Sports Coaches</span>
+        </div>
+        <div class="milestone-item">
+          <span class="m-num">100%</span>
+          <span class="m-text">Student Participation in Annual Athletic Heats</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT TROPHIES & ACHIEVEMENTS -->
+<section class="section achievements-section bg-light">
+  <div class="container">
+    <app-page-header
+      badge="Victories"
+      title="Recent Tournament Victories"
+      subtitle="Honoring our dedicated student athletes who have raised our school banner high across state and zonal arenas.">
+    </app-page-header>
+
+    <div class="grid grid-2 achievements-grid">
+      @for (ach of achievements; track ach.event) {
+        <div class="card ach-card">
+          <div class="ach-header">
+            <span class="ach-icon">{{ ach.icon }}</span>
+            <span class="ach-year">{{ ach.year }}</span>
+            <span class="ach-badge">{{ ach.badge }}</span>
+          </div>
+          <h3 class="ach-event">{{ ach.event }}</h3>
+          <p class="ach-detail">{{ ach.detail }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- DISCIPLINES GRID -->
+<section class="section disciplines-section">
+  <div class="container">
+    <app-page-header
+      badge="Training Arenas"
+      title="Sports Disciplines & Infrastructure"
+      subtitle="Supervised by NIS-trained directors and former state athletes.">
+    </app-page-header>
+
+    <div class="grid grid-3 disciplines-grid">
+      @for (d of disciplines; track d.name) {
+        <div class="card discipline-card">
+          <h4>{{ d.name }}</h4>
+          <p class="disc-coach"><strong>Coaching:</strong> {{ d.coach }}</p>
+          <p class="disc-facility"><strong>Facility:</strong> {{ d.facility }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>

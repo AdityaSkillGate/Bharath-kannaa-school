@@ -1,0 +1,124 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.topbar {
+  background-color: #062b5d;
+  color: #e2e8f0;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 101;
+  width: 100%;
+}
+
+.topbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--topbar-height);
+  padding-block: 0.35rem;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.topbar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #cbd5e1;
+}
+
+.topbar-link:hover {
+  color: var(--accent);
+}
+
+.topbar-icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--light-accent);
+  flex-shrink: 0;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.topbar-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  transition: all var(--transition-fast);
+}
+
+.social-icon-link svg {
+  width: 13px;
+  height: 13px;
+}
+
+.social-icon-link:hover {
+  background: var(--accent);
+  color: #0f172a;
+  transform: translateY(-2px);
+}
+
+.topbar-disclosure-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(245, 179, 1, 0.18);
+  border: 1px solid rgba(245, 179, 1, 0.4);
+  color: var(--light-accent);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-fast);
+}
+
+.topbar-disclosure-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+.topbar-disclosure-btn:hover {
+  background: var(--accent);
+  color: #062b5d;
+  border-color: var(--accent);
+}
+
+@media (max-width: 992px) {
+  .topbar-address, .topbar-email {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .topbar-socials {
+    display: none;
+  }
+  .topbar-container {
+    justify-content: center;
+    gap: 4px;
+  }
+}

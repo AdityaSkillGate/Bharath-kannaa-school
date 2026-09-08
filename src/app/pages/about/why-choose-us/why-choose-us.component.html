@@ -1,0 +1,134 @@
+<app-hero-banner
+  badge="Distinction in Education"
+  title="Why Choose Shri Bharath Kanna School"
+  subtitle="Where academic distinction meets character cultivation and 21st-century technological preparedness."
+  [breadcrumbs]="breadcrumbs">
+</app-hero-banner>
+
+<section class="section why-main-section">
+  <!-- Ambient Floating Glow Blobs -->
+  <div class="why-glow why-glow-1"></div>
+  <div class="why-glow why-glow-2"></div>
+
+  <div class="container relative-content">
+    <div class="grid grid-3 features-grid">
+      @for (feature of features; track feature.id; let i = $index) {
+        <div class="card choose-card" [style.--card-index]="i">
+          <div class="card-accent-line"></div>
+          <span class="card-watermark-number">0{{ i + 1 }}</span>
+
+          <div class="card-icon-header">
+            <div class="icon-circle">
+              @if (feature.id === 'academic-excellence') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="c-icon">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+              } @else if (feature.id === 'experienced-faculty') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="c-icon">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              } @else if (feature.id === 'smart-classrooms') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="c-icon">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                  <circle cx="12" cy="10" r="2.5"/>
+                </svg>
+              } @else if (feature.id === 'safe-campus') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="c-icon">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              } @else if (feature.id === 'holistic-sports') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="c-icon">
+                  <path d="M6 9H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h2"/>
+                  <path d="M18 9h2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2"/>
+                  <path d="M4 22h16"/>
+                  <path d="M10 14.66V17c0 .55-.45 1-1 1H7"/>
+                  <path d="M14 14.66V17c0 .55.45 1 1 1h2"/>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
+                </svg>
+              } @else {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="c-icon">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              }
+            </div>
+            @if (feature.tag) {
+              <span class="choose-tag">{{ feature.tag }}</span>
+            }
+          </div>
+
+          <h3 class="choose-title">{{ feature.title }}</h3>
+          <div class="feature-title-bar"></div>
+          <p class="choose-desc">{{ feature.description }}</p>
+
+          <div class="choose-card-footer">
+            <span class="card-learn-more">
+              <span>Explore Advantage</span>
+              <svg viewBox="0 0 20 20" fill="currentColor" class="learn-arrow">
+                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON / ADVANTAGE SECTION -->
+<section class="section comparison-section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">The SBKMHSS Advantage</span>
+      <h2 class="section-title">How We Elevate the Educational Journey</h2>
+      <p class="section-subtitle">A side-by-side view of our student-centered learning environment versus conventional rote classrooms.</p>
+    </div>
+
+    <div class="comparison-table-wrapper card">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Key Metric / Area</th>
+            <th class="highlight-col">Shri Bharath Kanna Mat. Hr. Sec. School</th>
+            <th>Conventional Schools</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pedagogy & Learning</strong></td>
+            <td class="highlight-col">Experiential, STEM-integrated & conceptual inquiry</td>
+            <td>Rote memorization & textbook transcription</td>
+          </tr>
+          <tr>
+            <td><strong>Student-Teacher Ratio</strong></td>
+            <td class="highlight-col">20:1 with individual remedial tracking</td>
+            <td>45:1 with generalized lecturing</td>
+          </tr>
+          <tr>
+            <td><strong>Technology Integration</strong></td>
+            <td class="highlight-col">4K Smart displays, Robotics Lab & AI tools</td>
+            <td>Limited chalk & blackboard only</td>
+          </tr>
+          <tr>
+            <td><strong>Competitive Readiness</strong></td>
+            <td class="highlight-col">NEET, JEE & Olympiad foundation from Grade 6</td>
+            <td>Basic syllabus coverage only</td>
+          </tr>
+          <tr>
+            <td><strong>Safety & Surveillance</strong></td>
+            <td class="highlight-col">150+ CCTV cameras, GPS tracking & resident nurse</td>
+            <td>Basic manual gatekeeping</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<app-cta-section></app-cta-section>
