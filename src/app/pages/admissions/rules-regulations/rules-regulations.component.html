@@ -1,16 +1,16 @@
 <app-hero-banner
-  badge="Campus Discipline"
-  title="School Rules & Code of Regulations"
-  subtitle="Cultivating self-discipline, safety, and mutual respect across our educational ecosystem."
+  [badge]="langService.t('rules.banner_badge')"
+  [title]="langService.t('rules.banner_title')"
+  [subtitle]="langService.t('rules.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
 <section class="section rules-section">
   <div class="container">
     <app-page-header
-      badge="Standards of Conduct"
-      title="Institutional Policies & Code of Conduct"
-      subtitle="Designed to preserve a safe, focused, and harmonious academic sanctuary for every learner.">
+      [badge]="langService.t('rules.standards_badge')"
+      [title]="langService.t('rules.standards_title')"
+      [subtitle]="langService.t('rules.standards_sub')">
     </app-page-header>
 
     <div class="grid grid-2 rules-grid">
@@ -40,9 +40,9 @@
     <div class="card zero-tolerance-card">
       <div class="zt-icon">🛡️</div>
       <div class="zt-text">
-        <h4>Anti-Bullying & Child Safety Assurance</h4>
+        <h4>{{ langService.t('rules.zt_title') }}</h4>
         <p>
-          Shri Bharath Kanna School maintains an unyielding zero-tolerance framework against any form of intimidation, harassment, or verbal abuse. A designated Child Protection & Anti-Bullying Committee functions directly under the Principal's oversight.
+          {{ langService.t('rules.zt_desc') }}
         </p>
       </div>
     </div>

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LanguageService } from '../../../shared/services/language.service';
 
 export interface BreadcrumbItem {
   label: string;
@@ -14,5 +15,6 @@ export interface BreadcrumbItem {
   styleUrl: './breadcrumb.component.css'
 })
 export class BreadcrumbComponent {
+  protected readonly langService = inject(LanguageService);
   @Input() items: BreadcrumbItem[] = [];
 }

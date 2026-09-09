@@ -1,16 +1,16 @@
 <app-hero-banner
-  badge="Parent Community"
-  title="Parents' Corner & Handbook"
-  subtitle="Essential schedules, PTA coordination, communication portals, uniform norms, and student wellness support."
+  [badge]="langService.t('pc.banner_badge')"
+  [title]="langService.t('pc.banner_title')"
+  [subtitle]="langService.t('pc.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
 <section class="section timings-section">
   <div class="container">
     <app-page-header
-      badge="Daily Schedule"
-      title="School Working Hours & Bell Timings"
-      subtitle="Punctuality is a virtue practiced with diligence. Gates close promptly 10 minutes prior to morning assembly.">
+      [badge]="langService.t('pc.sched_badge')"
+      [title]="langService.t('pc.sched_title')"
+      [subtitle]="langService.t('pc.sched_sub')">
     </app-page-header>
 
     <div class="grid grid-2 timings-grid">
@@ -18,8 +18,8 @@
         <div class="card timing-card">
           <div class="t-badge">⏰</div>
           <h4 class="t-wing">{{ t.wing }}</h4>
-          <p class="t-days"><strong>Working Days:</strong> {{ t.days }}</p>
-          <p class="t-hours"><strong>Timings:</strong> {{ t.hours }}</p>
+          <p class="t-days"><strong>{{ langService.t('pc.working_days') }}</strong> {{ t.days }}</p>
+          <p class="t-hours"><strong>{{ langService.t('pc.timings_label') }}</strong> {{ t.hours }}</p>
         </div>
       }
     </div>
@@ -31,10 +31,10 @@
   <div class="container">
     <div class="grid grid-2 uniform-grid items-center">
       <div>
-        <span class="section-badge">Neatness & Decorum</span>
-        <h2 class="section-title">Uniform & Personal Appearance Code</h2>
+        <span class="section-badge">{{ langService.t('pc.uniform_badge') }}</span>
+        <h2 class="section-title">{{ langService.t('pc.uniform_title') }}</h2>
         <p class="lead">
-          Our school uniform fosters unity, equality, and institutional pride. All students are expected to report in clean, well-pressed uniforms.
+          {{ langService.t('pc.uniform_lead') }}
         </p>
 
         <div class="uniform-schedule">
@@ -48,19 +48,19 @@
       </div>
 
       <div class="card pta-card">
-        <h3>Parent-Teacher Association (PTA)</h3>
+        <h3>{{ langService.t('pc.pta_title') }}</h3>
         <p>
-          The PTA functions as an active collaborative forum connecting parents and school leadership. General Body meetings convene once each term to review student welfare, academic progress, and infrastructural innovations.
+          {{ langService.t('pc.pta_desc') }}
         </p>
 
         <div class="pta-links-list">
           <div class="pta-item">
-            <strong>Parent Mobile ERP App:</strong>
-            <p>Download our official mobile app on Google Play / Apple App Store for real-time attendance alerts, fee receipts, digital diary notes, and teacher messaging.</p>
+            <strong>{{ langService.t('pc.app_title') }}</strong>
+            <p>{{ langService.t('pc.app_desc') }}</p>
           </div>
           <div class="pta-item">
-            <strong>Principal Visiting Hours:</strong>
-            <p>Monday to Friday: 3:30 PM – 4:30 PM (Prior appointment via office desk recommended).</p>
+            <strong>{{ langService.t('pc.hours_title') }}</strong>
+            <p>{{ langService.t('pc.hours_desc') }}</p>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 <app-hero-banner
-  badge="Governance & Philanthropy"
-  title="Our Educational Trust"
-  subtitle="Registered philanthropic foundation stewarding educational excellence and community upliftment."
+  [badge]="langService.t('trust.banner_badge')"
+  [title]="langService.t('trust.banner_title')"
+  [subtitle]="langService.t('trust.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
@@ -9,32 +9,32 @@
   <div class="container">
     <div class="grid grid-2 trust-intro-grid items-center">
       <div>
-        <span class="section-badge">Foundational Trust</span>
-        <h2 class="section-title">Shri Bharath Kanna Educational & Charitable Trust</h2>
+        <span class="section-badge">{{ langService.t('trust.intro_badge') }}</span>
+        <h2 class="section-title">{{ langService.t('trust.intro_title') }}</h2>
         <p class="lead">
-          Founded under the Indian Trusts Act as a non-profit registered charitable body, the Trust has dedicated itself for over 25 years to establishing world-class educational institutions.
+          {{ langService.t('trust.lead') }}
         </p>
         <p>
-          The Trust firmly believes that education is a sacred civic duty, not a commercial enterprise. Every surplus rupee generated is systematically re-invested into campus modernization, merit-cum-means scholarships for underprivileged rural students, teacher welfare endowments, and state-of-the-art laboratory infrastructure.
+          {{ langService.t('trust.p1') }}
         </p>
         <p>
-          Guided by ethical governance and statutory transparency, the board conducts quarterly operational reviews ensuring complete adherence to national educational policies and state regulatory norms.
+          {{ langService.t('trust.p2') }}
         </p>
       </div>
 
       <div class="card trust-stats-card">
-        <h3 class="stats-card-title">Trust Impact at a Glance</h3>
+        <h3 class="stats-card-title">{{ langService.t('trust.impact_title') }}</h3>
         <div class="trust-stat-item">
-          <span class="trust-stat-num">500+</span>
-          <span class="trust-stat-text">Full & Partial Merit Scholarships Awarded Annually</span>
+          <span class="trust-stat-num">{{ langService.t('trust.s1_num') }}</span>
+          <span class="trust-stat-text">{{ langService.t('trust.s1_text') }}</span>
         </div>
         <div class="trust-stat-item">
-          <span class="trust-stat-num">100%</span>
-          <span class="trust-stat-text">Non-Profit Surplus Reinvestment in Campus Facilities</span>
+          <span class="trust-stat-num">{{ langService.t('trust.s2_num') }}</span>
+          <span class="trust-stat-text">{{ langService.t('trust.s2_text') }}</span>
         </div>
         <div class="trust-stat-item">
-          <span class="trust-stat-num">4</span>
-          <span class="trust-stat-text">Adopted Rural Primary Schools Supported with Books & Uniforms</span>
+          <span class="trust-stat-num">{{ langService.t('trust.s3_num') }}</span>
+          <span class="trust-stat-text">{{ langService.t('trust.s3_text') }}</span>
         </div>
       </div>
     </div>
@@ -45,9 +45,9 @@
 <section class="section bg-light">
   <div class="container">
     <div class="section-header">
-      <span class="section-badge">Board Governance</span>
-      <h2 class="section-title">Board of Trustees</h2>
-      <p class="section-subtitle">Distinguished professionals lending their expertise to our institutional direction and governance.</p>
+      <span class="section-badge">{{ langService.t('trust.board_badge') }}</span>
+      <h2 class="section-title">{{ langService.t('trust.board_title') }}</h2>
+      <p class="section-subtitle">{{ langService.t('trust.board_sub') }}</p>
     </div>
 
     <div class="grid grid-3 trustees-grid">

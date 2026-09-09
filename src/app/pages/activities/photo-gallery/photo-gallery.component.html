@@ -1,7 +1,7 @@
 <app-hero-banner
-  badge="Visual Chronicle"
-  title="School Photo Gallery"
-  subtitle="Capturing memorable milestones, scientific curiosity, sporting triumphs, and vibrant campus life."
+  [badge]="langService.t('gallery.banner_badge')"
+  [title]="langService.t('gallery.banner_title')"
+  [subtitle]="langService.t('gallery.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
@@ -22,12 +22,12 @@
 
     <!-- Photos Grid -->
     <div class="grid grid-3 gallery-mosaic">
-      @for (photo of filteredPhotos(); track photo.id) {
+      @for (photo of filteredPhotos; track photo.id) {
         <div class="gallery-card card" (click)="openLightbox(photo)">
           <div class="gallery-card-img img-zoom-container">
             <img [src]="photo.imageUrl" [alt]="photo.title" loading="lazy" />
             <div class="gallery-card-hover">
-              <span class="hover-zoom-icon">🔍 View High-Res</span>
+              <span class="hover-zoom-icon">{{ langService.t('gallery.view_highres') }}</span>
             </div>
           </div>
           <div class="gallery-card-info">

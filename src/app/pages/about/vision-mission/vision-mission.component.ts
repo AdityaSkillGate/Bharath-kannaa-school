@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeroBannerComponent } from '../../../core/components/hero-banner/hero-banner.component';
 import { CtaSectionComponent } from '../../../core/components/cta-section/cta-section.component';
+import { LanguageService } from '../../../shared/services/language.service';
 
 @Component({
   selector: 'app-vision-mission',
@@ -10,31 +11,37 @@ import { CtaSectionComponent } from '../../../core/components/cta-section/cta-se
   styleUrl: './vision-mission.component.css'
 })
 export class VisionMissionComponent {
-  breadcrumbs = [
-    { label: 'About', url: '/about/about-us' },
-    { label: 'Vision & Mission' }
-  ];
+  protected readonly langService = inject(LanguageService);
 
-  values = [
-    {
-      title: 'Integrity & Ethics',
-      desc: 'Living with honesty, moral steadfastness, and transparency in all actions and relations.',
-      icon: 'shield'
-    },
-    {
-      title: 'Scholastic Excellence',
-      desc: 'Striving for continuous intellectual curiosity, mastery of knowledge, and academic brilliance.',
-      icon: 'academic'
-    },
-    {
-      title: 'Empathy & Inclusivity',
-      desc: 'Respecting diversity, practicing kindness, and actively serving the wider community.',
-      icon: 'heart'
-    },
-    {
-      title: 'Resilience & Courage',
-      desc: 'Overcoming challenges with an undaunted spirit, disciplined grit, and optimistic resolve.',
-      icon: 'spark'
-    }
-  ];
+  get breadcrumbs() {
+    return [
+      { label: this.langService.t('nav.about'), url: '/about/about-us' },
+      { label: this.langService.t('about.vision_mission') }
+    ];
+  }
+
+  get values() {
+    return [
+      {
+        title: this.langService.t('vm.v1_title'),
+        desc: this.langService.t('vm.v1_desc'),
+        icon: 'shield'
+      },
+      {
+        title: this.langService.t('vm.v2_title'),
+        desc: this.langService.t('vm.v2_desc'),
+        icon: 'academic'
+      },
+      {
+        title: this.langService.t('vm.v3_title'),
+        desc: this.langService.t('vm.v3_desc'),
+        icon: 'heart'
+      },
+      {
+        title: this.langService.t('vm.v4_title'),
+        desc: this.langService.t('vm.v4_desc'),
+        icon: 'spark'
+      }
+    ];
+  }
 }

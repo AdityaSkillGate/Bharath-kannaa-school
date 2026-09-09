@@ -1,7 +1,7 @@
 <app-hero-banner
-  badge="Leadership Perspectives"
-  title="Chairman's Message"
-  subtitle="Visionary guidance on education, character building, and the future of our young scholars."
+  [badge]="langService.t('chairman.banner_badge')"
+  [title]="langService.t('chairman.banner_title')"
+  [subtitle]="langService.t('chairman.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
@@ -29,32 +29,32 @@
 
       <!-- Full Message Text -->
       <div class="message-content">
-        <span class="section-badge">Inspiring Tomorrow's Builders</span>
-        <h2 class="section-title">A Message to Our Dear Students & Parents</h2>
+        <span class="section-badge">{{ langService.t('chairman.section_badge') }}</span>
+        <h2 class="section-title">{{ langService.t('chairman.section_title') }}</h2>
 
         <p class="lead">
-          "Education is the most potent instrument we possess to elevate human dignity, ignite innovative solutions, and sculpt a just and progressive society."
+          {{ langService.t('chairman.lead_quote') }}
         </p>
 
         <p>
-          Welcome to <strong>Shri Bharath Kanna Matriculation Higher Secondary School</strong>. When we founded this school twenty-five years ago, our aspiration was straightforward yet profound: every child born in our community, regardless of socio-economic background, deserves access to an education comparable with the finest institutions in the nation.
+          {{ langService.t('chairman.p1') }}
         </p>
 
         <p>
-          We live in an epoch of unprecedented technological revolution. Artificial intelligence, digital connectivity, and scientific marvels are fundamentally reshaping every sphere of human endeavor. Yet, technology without ethics is a compass without direction. That is why at SBKMHSS, we hold character building, humility, empathy, and respect for our cultural values in equal esteem with academic brilliance.
+          {{ langService.t('chairman.p2') }}
         </p>
 
         <p>
-          To our beloved parents, I express my deepest gratitude for entrusting your children to our care. We regard this trust as a sacred responsibility. We will never cease investing in superior campus infrastructure, modernized laboratories, dedicated sports coaching, and compassionate educator mentorship.
+          {{ langService.t('chairman.p3') }}
         </p>
 
         <p>
-          May God bless our school and every young learner who walks through our gates with wisdom, health, and limitless triumph.
+          {{ langService.t('chairman.p4') }}
         </p>
 
         <div class="signature-block">
-          <p class="sign-name">Dr. R. Kanna, M.E., Ph.D.</p>
-          <p class="sign-title">Chairman & Managing Trustee, SBKMHSS</p>
+          <p class="sign-name">{{ langService.t('chairman.sign_name') }}</p>
+          <p class="sign-title">{{ langService.t('chairman.sign_title') }}</p>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { HeroBannerComponent } from '../../core/components/hero-banner/hero-bann
 import { CtaSectionComponent } from '../../core/components/cta-section/cta-section.component';
 import { SchoolDataService } from '../../shared/services/school-data.service';
 import { NotificationService } from '../../shared/services/notification.service';
+import { LanguageService } from '../../shared/services/language.service';
 import { DisclosureItem } from '../../shared/interfaces/school.interfaces';
 
 @Component({
@@ -14,14 +15,20 @@ import { DisclosureItem } from '../../shared/interfaces/school.interfaces';
 })
 export class MandatoryPublicDisclosureComponent {
   protected readonly schoolData = inject(SchoolDataService);
+  protected readonly langService = inject(LanguageService);
   private readonly toast = inject(NotificationService);
 
   readonly info = this.schoolData.schoolInfo;
-  readonly documents = this.schoolData.getDisclosures();
 
-  breadcrumbs = [
-    { label: 'Mandatory Public Disclosure' }
-  ];
+  get documents() {
+    return this.schoolData.getDisclosures(this.langService.currentLang());
+  }
+
+  get breadcrumbs() {
+    return [
+      { label: this.langService.t('nav.disclosure') }
+    ];
+  }
 
   boardResults10 = [
     { year: '2023 - 2024', registered: 148, passed: 148, passPercentage: '100%', centums: 18, schoolTopper: '494/500' },
@@ -36,6 +43,9 @@ export class MandatoryPublicDisclosureComponent {
   ];
 
   downloadDoc(doc: DisclosureItem) {
-    this.toast.show(`Downloading certified public document: ${doc.title} (${doc.fileSize})`, 'info');
+    this.toast.show(
+      this.langService.t('toast.download_info', { title: doc.title, fileSize: doc.fileSize }),
+      'info'
+    );
   }
 }

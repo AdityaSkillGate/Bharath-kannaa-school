@@ -1,16 +1,16 @@
 <app-hero-banner
-  badge="Academic Mentors"
-  title="Our Leadership Team"
-  subtitle="Experienced administrators, pedagogical coordinators, and visionary leaders shaping our school's excellence."
+  [badge]="langService.t('lead_team.banner_badge')"
+  [title]="langService.t('lead_team.banner_title')"
+  [subtitle]="langService.t('lead_team.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
 <section class="section leaders-grid-section">
   <div class="container">
     <div class="section-header">
-      <span class="section-badge">Executive Leadership</span>
-      <h2 class="section-title">Governing & Executive Heads</h2>
-      <p class="section-subtitle">Dedicated stalwarts leading institutional policy, infrastructure development, and overall academic rigor.</p>
+      <span class="section-badge">{{ langService.t('lead_team.exec_badge') }}</span>
+      <h2 class="section-title">{{ langService.t('lead_team.exec_title') }}</h2>
+      <p class="section-subtitle">{{ langService.t('lead_team.exec_sub') }}</p>
     </div>
 
     <div class="grid grid-3 exec-leaders-grid">
@@ -35,9 +35,9 @@
 <section class="section coordinators-section bg-light">
   <div class="container">
     <div class="section-header">
-      <span class="section-badge">Wing Incharges</span>
-      <h2 class="section-title">Academic Heads & Department Coordinators</h2>
-      <p class="section-subtitle">The experienced educators overseeing daily lesson planning, continuous assessment, and student mentoring.</p>
+      <span class="section-badge">{{ langService.t('lead_team.coords_badge') }}</span>
+      <h2 class="section-title">{{ langService.t('lead_team.coords_title') }}</h2>
+      <p class="section-subtitle">{{ langService.t('lead_team.coords_sub') }}</p>
     </div>
 
     <div class="grid grid-3 coords-grid">
@@ -47,7 +47,7 @@
           <h4 class="coord-name">{{ coord.name }}</h4>
           <p class="coord-role">{{ coord.role }}</p>
           <div class="coord-exp">
-            <span>Experience: <strong>{{ coord.experience }}</strong></span>
+            <span>{{ langService.t('lead_team.exp_label') }} <strong>{{ coord.experience }}</strong></span>
           </div>
         </div>
       }

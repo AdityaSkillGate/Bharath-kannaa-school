@@ -1,7 +1,7 @@
 <app-hero-banner
-  badge="Admissions 2025 - 2026"
-  title="Admission Process & Enrollment"
-  subtitle="Embark on an inspiring educational expedition. Clear steps, transparent eligibility, and online registration."
+  [badge]="langService.t('adm_page.banner_badge')"
+  [title]="langService.t('adm_page.banner_title')"
+  [subtitle]="langService.t('adm_page.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
@@ -10,10 +10,10 @@
     <div class="grid grid-2 admission-main-grid">
       <!-- Left Column: Process & Requirements -->
       <div class="admission-info-col">
-        <span class="section-badge">Roadmap to Admission</span>
-        <h2 class="section-title">Step-by-Step Admission Procedure</h2>
+        <span class="section-badge">{{ langService.t('adm_page.process_badge') }}</span>
+        <h2 class="section-title">{{ langService.t('adm_page.process_title') }}</h2>
         <p class="lead">
-          We welcome applications from motivated learners eager to be part of our dynamic academic, athletic, and moral community.
+          {{ langService.t('adm_page.lead') }}
         </p>
 
         <!-- Steps Timeline -->
@@ -31,7 +31,7 @@
 
         <!-- Required Documents Checklist -->
         <div class="card docs-card" style="margin-top: 3rem;">
-          <h3 class="docs-title">Mandatory Documents Checklist</h3>
+          <h3 class="docs-title">{{ langService.t('adm_page.docs_title') }}</h3>
           <ul class="docs-list">
             @for (doc of requiredDocuments; track doc) {
               <li>
@@ -46,13 +46,13 @@
       <!-- Right Column: Online Admission Enquiry Form -->
       <div class="admission-form-col">
         <div class="card admission-form-card">
-          <div class="form-header-badge">Online Registration</div>
-          <h3>Admission Enquiry Form (2025 - 2026)</h3>
-          <p class="form-subtext">Fill in student details below and our admissions counseling team will contact you promptly.</p>
+          <div class="form-header-badge">{{ langService.t('adm_page.form_badge') }}</div>
+          <h3>{{ langService.t('adm_page.form_title') }}</h3>
+          <p class="form-subtext">{{ langService.t('adm_page.form_sub') }}</p>
 
           <form #admForm="ngForm" (ngSubmit)="submitEnquiry(admForm)" class="enquiry-form">
             <div class="form-group">
-              <label class="form-label">Student's Full Name *</label>
+              <label class="form-label">{{ langService.t('adm_page.student_name') }}</label>
               <input
                 type="text"
                 name="studentName"
@@ -60,16 +60,16 @@
                 required
                 #sName="ngModel"
                 class="form-control"
-                placeholder="Student's name as per birth certificate"
+                [placeholder]="langService.t('adm_page.student_name_ph')"
               />
               @if (sName.invalid && sName.touched) {
-                <span class="form-error">Student name is required.</span>
+                <span class="form-error">{{ langService.t('adm_page.err_student') }}</span>
               }
             </div>
 
             <div class="form-row grid-2">
               <div class="form-group">
-                <label class="form-label">Parent / Guardian Name *</label>
+                <label class="form-label">{{ langService.t('adm_page.parent_name') }}</label>
                 <input
                   type="text"
                   name="parentName"
@@ -77,15 +77,15 @@
                   required
                   #pName="ngModel"
                   class="form-control"
-                  placeholder="Parent / Guardian Name"
+                  [placeholder]="langService.t('adm_page.parent_name_ph')"
                 />
                 @if (pName.invalid && pName.touched) {
-                  <span class="form-error">Parent name is required.</span>
+                  <span class="form-error">{{ langService.t('adm_page.err_parent') }}</span>
                 }
               </div>
 
               <div class="form-group">
-                <label class="form-label">Grade Applying For *</label>
+                <label class="form-label">{{ langService.t('adm_page.grade') }}</label>
                 <select
                   name="gradeApplying"
                   [(ngModel)]="enquiry.gradeApplying"
@@ -93,7 +93,7 @@
                   #grade="ngModel"
                   class="form-control"
                 >
-                  <option value="" disabled selected>Select Grade</option>
+                  <option value="" disabled selected>{{ langService.t('adm_page.select_grade') }}</option>
                   <option value="Pre-KG">Pre-KG</option>
                   <option value="LKG">LKG</option>
                   <option value="UKG">UKG</option>
@@ -112,14 +112,14 @@
                   <option value="Grade 11 Commerce">Grade 11 - Commerce</option>
                 </select>
                 @if (grade.invalid && grade.touched) {
-                  <span class="form-error">Please choose a grade.</span>
+                  <span class="form-error">{{ langService.t('adm_page.err_grade') }}</span>
                 }
               </div>
             </div>
 
             <div class="form-row grid-2">
               <div class="form-group">
-                <label class="form-label">Contact Mobile Number *</label>
+                <label class="form-label">{{ langService.t('adm_page.phone') }}</label>
                 <input
                   type="tel"
                   name="contactPhone"
@@ -128,15 +128,15 @@
                   pattern="[0-9]{10}"
                   #phone="ngModel"
                   class="form-control"
-                  placeholder="10-digit mobile number"
+                  [placeholder]="langService.t('adm_page.phone_ph')"
                 />
                 @if (phone.invalid && phone.touched) {
-                  <span class="form-error">Valid 10-digit phone number is required.</span>
+                  <span class="form-error">{{ langService.t('adm_page.err_phone') }}</span>
                 }
               </div>
 
               <div class="form-group">
-                <label class="form-label">Email Address *</label>
+                <label class="form-label">{{ langService.t('adm_page.email') }}</label>
                 <input
                   type="email"
                   name="email"
@@ -145,38 +145,38 @@
                   email
                   #emailField="ngModel"
                   class="form-control"
-                  placeholder="parent.email@domain.com"
+                  [placeholder]="langService.t('adm_page.email_ph')"
                 />
                 @if (emailField.invalid && emailField.touched) {
-                  <span class="form-error">Valid email address is required.</span>
+                  <span class="form-error">{{ langService.t('adm_page.err_email') }}</span>
                 }
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label">City / Residential Area</label>
+              <label class="form-label">{{ langService.t('adm_page.city') }}</label>
               <input
                 type="text"
                 name="residenceCity"
                 [(ngModel)]="enquiry.residenceCity"
                 class="form-control"
-                placeholder="e.g. Sivakasi / Virudhunagar"
+                [placeholder]="langService.t('adm_page.city_ph')"
               />
             </div>
 
             <div class="form-group">
-              <label class="form-label">Queries / Any Special Remarks</label>
+              <label class="form-label">{{ langService.t('adm_page.notes') }}</label>
               <textarea
                 name="notes"
                 [(ngModel)]="enquiry.notes"
                 rows="3"
                 class="form-control"
-                placeholder="Ask about bus routes, hostel, or extra-curricular facilities..."
+                [placeholder]="langService.t('adm_page.notes_ph')"
               ></textarea>
             </div>
 
             <button type="submit" class="btn btn-accent btn-lg" style="width: 100%;" [disabled]="admForm.invalid">
-              <span>Submit Admission Enquiry</span>
+              <span>{{ langService.t('adm_page.submit_btn') }}</span>
             </button>
           </form>
         </div>
@@ -191,13 +191,13 @@
     <div class="grid grid-2 info-tables-grid">
       <!-- Age Eligibility -->
       <div class="card">
-        <h3>Age Eligibility Matrix</h3>
-        <p class="table-sub">Age calculated as on 31st July of the admission academic year:</p>
+        <h3>{{ langService.t('adm_page.matrix_title') }}</h3>
+        <p class="table-sub">{{ langService.t('adm_page.matrix_sub') }}</p>
         <table class="eligibility-table">
           <thead>
             <tr>
-              <th>Class / Standard</th>
-              <th>Prescribed Age Criteria</th>
+              <th>{{ langService.t('adm_page.th_class') }}</th>
+              <th>{{ langService.t('adm_page.th_age') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -213,27 +213,27 @@
 
       <!-- Transparent Fee Policy -->
       <div class="card fee-policy-card">
-        <h3>Fee Structure & Guidelines</h3>
+        <h3>{{ langService.t('adm_page.fee_title') }}</h3>
         <p>
-          In strict compliance with the Tamil Nadu Private Schools Fee Determination Committee, our fees are transparent, highly competitive, and all-inclusive of standard lab facilities, sports equipment, and library resources.
+          {{ langService.t('adm_page.fee_desc') }}
         </p>
         <div class="fee-highlights">
           <div class="fee-item">
-            <strong>Term Payment Flexibility:</strong>
-            <p>Tuition fees may be settled in 3 equal term installments across June, October, and January.</p>
+            <strong>{{ langService.t('adm_page.fee_h1_title') }}</strong>
+            <p>{{ langService.t('adm_page.fee_h1_desc') }}</p>
           </div>
           <div class="fee-item">
-            <strong>Merit Scholarships:</strong>
-            <p>Students scoring 95%+ in Grade 10 Board examinations receive up to 50% tuition concession for Senior Secondary streams.</p>
+            <strong>{{ langService.t('adm_page.fee_h2_title') }}</strong>
+            <p>{{ langService.t('adm_page.fee_h2_desc') }}</p>
           </div>
           <div class="fee-item">
-            <strong>Digital & Cashless Modes:</strong>
-            <p>Safe UPI, Net Banking, and parent mobile portal payment options available with instantaneous digital receipts.</p>
+            <strong>{{ langService.t('adm_page.fee_h3_title') }}</strong>
+            <p>{{ langService.t('adm_page.fee_h3_desc') }}</p>
           </div>
         </div>
         <div style="margin-top: 1.5rem;">
           <a routerLink="/mandatory-public-disclosure" class="btn btn-outline-primary btn-sm">
-            View Approved Fee Structure Schedule in MPD
+            {{ langService.t('adm_page.fee_btn') }}
           </a>
         </div>
       </div>

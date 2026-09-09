@@ -50,4 +50,25 @@ describe('App', () => {
     expect(chatWindow).toBeTruthy();
     expect(compiled.querySelector('.chat-bot-name')?.textContent).toContain('Shree Bharath Kanna AI Assistant');
   });
+
+  it('should toggle language between English and Tamil', async () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    const langBtn = compiled.querySelector('.topbar-lang-toggle') as HTMLButtonElement;
+    expect(langBtn).toBeTruthy();
+
+    // Click toggle to Tamil
+    langBtn.click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(langBtn.textContent).toContain('English');
+    // Nav link should now be in Tamil
+    const navLinks = compiled.querySelectorAll('.nav-link');
+    const hasTamilHome = Array.from(navLinks).some(link => link.textContent?.includes('முகப்பு'));
+    expect(hasTamilHome).toBe(true);
+  });
 });

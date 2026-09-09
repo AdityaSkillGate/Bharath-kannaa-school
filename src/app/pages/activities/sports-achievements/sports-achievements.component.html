@@ -1,7 +1,7 @@
 <app-hero-banner
-  badge="Athletic Glory"
-  title="Sports & Achievements"
-  subtitle="Champions on the field, champions in life. Fostering stamina, tenacity, and triumphant teamwork."
+  [badge]="langService.t('sports.banner_badge')"
+  [title]="langService.t('sports.banner_title')"
+  [subtitle]="langService.t('sports.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
@@ -10,32 +10,32 @@
   <div class="container">
     <div class="grid grid-2 sports-intro-grid items-center">
       <div>
-        <span class="section-badge">Physical Education</span>
-        <h2 class="section-title">A Tradition of Sporting Rigor & Athletic Fitness</h2>
+        <span class="section-badge">{{ langService.t('sports.intro_badge') }}</span>
+        <h2 class="section-title">{{ langService.t('sports.intro_title') }}</h2>
         <p class="lead">
-          At Shri Bharath Kanna School, physical education is not an afterthought; it is an integral pillar of mental vigor and emotional well-being.
+          {{ langService.t('sports.lead') }}
         </p>
         <p>
-          Our expansive sports grounds provide specialized courts and professional coaching for multiple sporting disciplines. Daily morning fitness routines, after-school academy coaching, and yoga sessions guarantee that every student cultivates stamina, speed, agility, and unbreakable sportsmanship.
+          {{ langService.t('sports.p1') }}
         </p>
         <p>
-          We also take immense pride in promoting native martial arts like <strong>Silambam</strong> alongside contemporary Olympic disciplines.
+          {{ langService.t('sports.p2') }}
         </p>
       </div>
 
       <div class="card sports-stat-box">
-        <h3>Our Sporting Milestones</h3>
+        <h3>{{ langService.t('sports.milestones_title') }}</h3>
         <div class="milestone-item">
           <span class="m-num">45+</span>
-          <span class="m-text">State & District Medals Won in 2024-25</span>
+          <span class="m-text">{{ langService.t('sports.m1_text') }}</span>
         </div>
         <div class="milestone-item">
           <span class="m-num">6</span>
-          <span class="m-text">Dedicated Full-Time Certified Sports Coaches</span>
+          <span class="m-text">{{ langService.t('sports.m2_text') }}</span>
         </div>
         <div class="milestone-item">
           <span class="m-num">100%</span>
-          <span class="m-text">Student Participation in Annual Athletic Heats</span>
+          <span class="m-text">{{ langService.t('sports.m3_text') }}</span>
         </div>
       </div>
     </div>
@@ -46,9 +46,9 @@
 <section class="section achievements-section bg-light">
   <div class="container">
     <app-page-header
-      badge="Victories"
-      title="Recent Tournament Victories"
-      subtitle="Honoring our dedicated student athletes who have raised our school banner high across state and zonal arenas.">
+      [badge]="langService.t('sports.vic_badge')"
+      [title]="langService.t('sports.vic_title')"
+      [subtitle]="langService.t('sports.vic_sub')">
     </app-page-header>
 
     <div class="grid grid-2 achievements-grid">
@@ -71,17 +71,17 @@
 <section class="section disciplines-section">
   <div class="container">
     <app-page-header
-      badge="Training Arenas"
-      title="Sports Disciplines & Infrastructure"
-      subtitle="Supervised by NIS-trained directors and former state athletes.">
+      [badge]="langService.t('sports.disc_badge')"
+      [title]="langService.t('sports.disc_title')"
+      [subtitle]="langService.t('sports.disc_sub')">
     </app-page-header>
 
     <div class="grid grid-3 disciplines-grid">
       @for (d of disciplines; track d.name) {
         <div class="card discipline-card">
           <h4>{{ d.name }}</h4>
-          <p class="disc-coach"><strong>Coaching:</strong> {{ d.coach }}</p>
-          <p class="disc-facility"><strong>Facility:</strong> {{ d.facility }}</p>
+          <p class="disc-coach"><strong>{{ langService.t('sports.coaching_label') }}</strong> {{ d.coach }}</p>
+          <p class="disc-facility"><strong>{{ langService.t('sports.facility_label') }}</strong> {{ d.facility }}</p>
         </div>
       }
     </div>

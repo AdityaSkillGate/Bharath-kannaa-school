@@ -2,6 +2,7 @@ import { Component, HostListener, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 import { SchoolDataService } from '../../../shared/services/school-data.service';
+import { LanguageService } from '../../../shared/services/language.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,7 @@ import { SchoolDataService } from '../../../shared/services/school-data.service'
 export class NavbarComponent {
   private readonly router = inject(Router);
   protected readonly schoolData = inject(SchoolDataService);
+  protected readonly langService = inject(LanguageService);
   protected readonly info = this.schoolData.schoolInfo;
 
   isScrolled = signal(false);

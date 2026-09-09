@@ -2,7 +2,7 @@ export const SCHOOL_INFO = {
   name: 'Shri Bharath Kanna Mat. Hr. Sec. School',
   shortName: 'SBKMHSS',
   tagline: 'Inspiring Minds, Empowering Futures, Building Character',
-  affiliation: 'Recognized by Govt. of Tamil Nadu & Aligned with CBSE Holistic Standards',
+  affiliation: 'Recognized by Govt. of Tamil Nadu ',
   recognitionCode: 'TN-EDN-MAT-89241',
   establishedYear: '1998',
   address: 'Kannimar Kovil Nagar, Periasamiyapuram, sankarankovil - TK, Tenkasi, India, Tamil Nadu',

@@ -1,7 +1,7 @@
 <app-hero-banner
-  badge="Guiding Light"
-  title="Vision, Mission & Core Values"
-  subtitle="The guiding moral and pedagogical compass illuminating our pursuit of institutional excellence."
+  [badge]="langService.t('vm.banner_badge')"
+  [title]="langService.t('vm.banner_title')"
+  [subtitle]="langService.t('vm.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
@@ -13,10 +13,10 @@
         <div class="vm-badge-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
         </div>
-        <span class="vm-tag">OUR VISION</span>
-        <h2 class="vm-title">To Be a Beacon of World-Class Learning & Compassionate Leadership</h2>
+        <span class="vm-tag">{{ langService.t('vm.vision_tag') }}</span>
+        <h2 class="vm-title">{{ langService.t('vm.vision_title') }}</h2>
         <p class="vm-body">
-          To emerge as an institution of international distinction that empowers every learner to realize their highest cognitive, ethical, and creative potential; transforming students into enlightened, forward-looking global citizens who contribute meaningfully to the progress of our nation and humanity.
+          {{ langService.t('vm.vision_desc') }}
         </p>
       </div>
 
@@ -25,13 +25,13 @@
         <div class="vm-badge-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <span class="vm-tag">OUR MISSION</span>
-        <h2 class="vm-title">Cultivating Intellect, Character & Practical Competency</h2>
+        <span class="vm-tag">{{ langService.t('vm.mission_tag') }}</span>
+        <h2 class="vm-title">{{ langService.t('vm.mission_title') }}</h2>
         <ul class="mission-points">
-          <li>Deliver robust, student-centric pedagogical frameworks integrating experiential science, robotics, and creative arts.</li>
-          <li>Foster unwavering moral integrity, civic responsibility, and environmental stewardship across all age groups.</li>
-          <li>Maintain affordable, inclusive educational access without compromising on world-class campus infrastructure and safety.</li>
-          <li>Equip every student with critical thinking and technological agility to excel in competitive national and global exams.</li>
+          <li>{{ langService.t('vm.m1') }}</li>
+          <li>{{ langService.t('vm.m2') }}</li>
+          <li>{{ langService.t('vm.m3') }}</li>
+          <li>{{ langService.t('vm.m4') }}</li>
         </ul>
       </div>
     </div>
@@ -42,9 +42,9 @@
 <section class="section values-section bg-light">
   <div class="container">
     <div class="section-header">
-      <span class="section-badge">Moral Compass</span>
-      <h2 class="section-title">Our Core Values</h2>
-      <p class="section-subtitle">Values that are woven into our daily assemblies, classroom discussions, sports arenas, and extracurricular pursuits.</p>
+      <span class="section-badge">{{ langService.t('vm.values_badge') }}</span>
+      <h2 class="section-title">{{ langService.t('vm.values_title') }}</h2>
+      <p class="section-subtitle">{{ langService.t('vm.values_sub') }}</p>
     </div>
 
     <div class="grid grid-4 values-grid">

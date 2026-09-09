@@ -1,16 +1,16 @@
 <app-hero-banner
-  badge="Campus Infrastructure"
-  title="World-Class School Facilities"
-  subtitle="Purpose-built learning environments, cutting-edge science and computer laboratories, expansive sports arena, and safe transport fleet."
+  [badge]="bannerBadge"
+  [title]="bannerTitle"
+  [subtitle]="bannerSub"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
 <section class="section facilities-page-section">
   <div class="container">
     <app-page-header
-      badge="Modern Campus"
-      title="Everything Your Child Needs to Flourish"
-      subtitle="Engineered to meet the highest safety, hygiene, and technological benchmarks.">
+      [badge]="pageBadge"
+      [title]="pageTitle"
+      [subtitle]="pageSub">
     </app-page-header>
 
     <div class="facilities-stack">
@@ -21,7 +21,7 @@
           </div>
 
           <div class="facility-row-body">
-            <span class="facility-pill">World-Class Facility</span>
+            <span class="facility-pill">{{ langService.t('fac_page.pill') }}</span>
             <h3 class="facility-heading">{{ f.title }}</h3>
             <p class="facility-desc-main">{{ f.fullDesc }}</p>
 
@@ -46,9 +46,9 @@
     <div class="card eco-card">
       <div class="eco-icon">🌿</div>
       <div class="eco-text">
-        <h4>Eco-Friendly, Clean & Sustainable Green Campus</h4>
+        <h4>{{ langService.t('fac_page.eco_title') }}</h4>
         <p>
-          Our campus features rooftop solar power generation, rainwater harvesting reservoirs recharging groundwater levels, 100% LED fixtures, zero single-use plastic enforcement, and over 400 shady trees creating a pollution-free microclimate.
+          {{ langService.t('fac_page.eco_desc') }}
         </p>
       </div>
     </div>

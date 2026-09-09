@@ -4,6 +4,7 @@ import { HeroBannerComponent } from '../../core/components/hero-banner/hero-bann
 import { CtaSectionComponent } from '../../core/components/cta-section/cta-section.component';
 import { SchoolDataService } from '../../shared/services/school-data.service';
 import { NotificationService } from '../../shared/services/notification.service';
+import { LanguageService } from '../../shared/services/language.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,13 +15,16 @@ import { NotificationService } from '../../shared/services/notification.service'
 })
 export class ContactComponent {
   protected readonly schoolData = inject(SchoolDataService);
+  protected readonly langService = inject(LanguageService);
   private readonly toast = inject(NotificationService);
 
   readonly info = this.schoolData.schoolInfo;
 
-  breadcrumbs = [
-    { label: 'Contact Us' }
-  ];
+  get breadcrumbs() {
+    return [
+      { label: this.langService.t('nav.contact') }
+    ];
+  }
 
   contactForm = {
     name: '',
@@ -33,12 +37,12 @@ export class ContactComponent {
   submitMessage(form: any) {
     if (form.valid) {
       this.toast.show(
-        `Thank you, ${this.contactForm.name}! Your message has been received. Our administrative desk will get back to you shortly.`,
+        this.langService.t('toast.contact_success', { name: this.contactForm.name }),
         'success'
       );
       form.resetForm();
     } else {
-      this.toast.show('Please fill in all mandatory fields with valid information.', 'error');
+      this.toast.show(this.langService.t('toast.contact_error'), 'error');
     }
   }
 }

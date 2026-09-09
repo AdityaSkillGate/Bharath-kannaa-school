@@ -1,7 +1,7 @@
 <app-hero-banner
-  badge="Academic Leadership"
-  title="From the Principal's Desk"
-  subtitle="Cultivating intellectual rigor, analytical reasoning, and compassionate citizenship."
+  [badge]="langService.t('princ.banner_badge')"
+  [title]="langService.t('princ.banner_title')"
+  [subtitle]="langService.t('princ.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
@@ -29,32 +29,32 @@
 
       <!-- Full Message Text -->
       <div class="message-content">
-        <span class="section-badge">Scholastic Leadership</span>
-        <h2 class="section-title">Guiding Students to the Zenith of Their Potential</h2>
+        <span class="section-badge">{{ langService.t('princ.section_badge') }}</span>
+        <h2 class="section-title">{{ langService.t('princ.section_title') }}</h2>
 
         <p class="lead">
-          "Pedagogical excellence is not simply measured by percentages on marksheets, but by the intellectual curiosity ignited, the moral character forged, and the courage instilled in each young heart."
+          {{ langService.t('princ.lead_quote') }}
         </p>
 
         <p>
-          At <strong>Shri Bharath Kanna Matriculation Higher Secondary School</strong>, we believe every child arrives on campus with boundless potential waiting to be awakened. Our role as mentors is to provide the fertile soil, the nurturing sunlight of encouragement, and the rigorous discipline of deep practice.
+          {{ langService.t('princ.p1') }}
         </p>
 
         <p>
-          Our academic curriculum is thoughtfully sequenced. From phonics, tactile Montessori tools, and storytelling in early childhood, to advanced problem-solving, algorithmic thinking, and scientific experimentation in high school, we ensure continuous learning progression. Our teachers work tirelessly to ensure no student is left behind, organizing tailored remedial support alongside enrichment tracks for gifted learners.
+          {{ langService.t('princ.p2') }}
         </p>
 
         <p>
-          Our continuous 100% board examination pass records and state ranks stand testament to the symbiotic partnership between our dedicated teachers, hardworking students, and supportive parents.
+          {{ langService.t('princ.p3') }}
         </p>
 
         <p>
-          I welcome you to explore our vibrant campus, interact with our faculty, and discover how your child can blossom into a confident, responsible, and triumphant individual.
+          {{ langService.t('princ.p4') }}
         </p>
 
         <div class="signature-block">
-          <p class="sign-name">Dr. K. Soundararajan, M.Sc., M.Phil., Ph.D., B.Ed.</p>
-          <p class="sign-title">Principal, SBKMHSS</p>
+          <p class="sign-name">{{ langService.t('princ.sign_name') }}</p>
+          <p class="sign-title">{{ langService.t('princ.sign_title') }}</p>
         </div>
       </div>
     </div>

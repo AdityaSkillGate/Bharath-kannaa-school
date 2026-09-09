@@ -1,16 +1,16 @@
 <app-hero-banner
-  badge="Co-Curricular Life"
-  title="Student Development & Co-Curricular Clubs"
-  subtitle="Nurturing passion, social leadership, and multifaceted talents beyond standard textbook frontiers."
+  [badge]="langService.t('act_sd.banner_badge')"
+  [title]="langService.t('act_sd.banner_title')"
+  [subtitle]="langService.t('act_sd.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
 <section class="section clubs-section">
   <div class="container">
     <app-page-header
-      badge="Passions & Interests"
-      title="Dynamic Student Clubs & Societies"
-      subtitle="Students select from an eclectic array of student-led clubs that meet twice a week under faculty mentors.">
+      [badge]="langService.t('act_sd.clubs_badge')"
+      [title]="langService.t('act_sd.clubs_title')"
+      [subtitle]="langService.t('act_sd.clubs_sub')">
     </app-page-header>
 
     <div class="grid grid-3 clubs-grid">
@@ -21,7 +21,7 @@
           <p class="club-desc">{{ club.desc }}</p>
 
           <div class="club-activities-block">
-            <h5>Core Focus:</h5>
+            <h5>{{ langService.t('act_sd.focus_label') }}</h5>
             <ul>
               @for (act of club.activities; track act) {
                 <li>• {{ act }}</li>
@@ -39,47 +39,47 @@
   <div class="container">
     <div class="grid grid-2 lead-dev-grid items-center">
       <div>
-        <span class="section-badge">Student Governance</span>
-        <h2 class="section-title">Democratic Student Council & House System</h2>
+        <span class="section-badge">{{ langService.t('act_sd.lead_badge') }}</span>
+        <h2 class="section-title">{{ langService.t('act_sd.lead_title') }}</h2>
         <p class="lead">
-          Leadership is not taught by lecture; it is cultivated through active stewardship, democratic responsibility, and collective teamwork.
+          {{ langService.t('act_sd.lead_p1') }}
         </p>
         <p>
-          Every academic year, students democratically elect the School Head Boy, Head Girl, Sports Captain, Cultural Secretary, and House Prefects across our four spirited houses: <strong>Emerald, Ruby, Sapphire, and Topaz</strong>.
+          {{ langService.t('act_sd.lead_p2') }}
         </p>
         <p>
-          Prefects lead morning assemblies, organize intra-school literary fests, maintain corridor discipline, and act as empathetic mediators for peer conflict resolution.
+          {{ langService.t('act_sd.lead_p3') }}
         </p>
       </div>
 
       <div class="card houses-card">
-        <h3>The Four Houses of SBKMHSS</h3>
+        <h3>{{ langService.t('act_sd.houses_title') }}</h3>
         <div class="house-item emerald">
           <div class="house-badge">🟢</div>
           <div>
-            <h4>Emerald House</h4>
-            <p>Motto: <em>Harmony, Growth & Perseverance</em></p>
+            <h4>{{ langService.t('act_sd.h_emerald') }}</h4>
+            <p>{{ langService.t('act_sd.h_emerald_motto') }}</p>
           </div>
         </div>
         <div class="house-item ruby">
           <div class="house-badge">🔴</div>
           <div>
-            <h4>Ruby House</h4>
-            <p>Motto: <em>Courage, Passion & Victory</em></p>
+            <h4>{{ langService.t('act_sd.h_ruby') }}</h4>
+            <p>{{ langService.t('act_sd.h_ruby_motto') }}</p>
           </div>
         </div>
         <div class="house-item sapphire">
           <div class="house-badge">🔵</div>
           <div>
-            <h4>Sapphire House</h4>
-            <p>Motto: <em>Truth, Wisdom & Loyalty</em></p>
+            <h4>{{ langService.t('act_sd.h_sapphire') }}</h4>
+            <p>{{ langService.t('act_sd.h_sapphire_motto') }}</p>
           </div>
         </div>
         <div class="house-item topaz">
           <div class="house-badge">🟡</div>
           <div>
-            <h4>Topaz House</h4>
-            <p>Motto: <em>Brilliance, Optimism & Service</em></p>
+            <h4>{{ langService.t('act_sd.h_topaz') }}</h4>
+            <p>{{ langService.t('act_sd.h_topaz_motto') }}</p>
           </div>
         </div>
       </div>

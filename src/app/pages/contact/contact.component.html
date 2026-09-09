@@ -1,7 +1,7 @@
 <app-hero-banner
-  badge="Connect With Us"
-  title="Contact Shri Bharath Kanna School"
-  subtitle="We are delighted to assist with your admission enquiries, campus visits, or general questions."
+  [badge]="langService.t('contact.banner_badge')"
+  [title]="langService.t('contact.banner_title')"
+  [subtitle]="langService.t('contact.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
@@ -11,24 +11,24 @@
     <div class="grid grid-4 contact-info-cards">
       <div class="card c-card">
         <div class="c-icon-badge">📍</div>
-        <h4>Campus Address</h4>
+        <h4>{{ langService.t('contact.card_address') }}</h4>
         <p>{{ info.address }}</p>
       </div>
       <div class="card c-card">
         <div class="c-icon-badge">📞</div>
-        <h4>Phone Numbers</h4>
+        <h4>{{ langService.t('contact.card_phone') }}</h4>
         <p><a [href]="'tel:' + info.phone">{{ info.phone }}</a></p>
         <p><a [href]="'tel:' + info.secondaryPhone">{{ info.secondaryPhone }}</a></p>
       </div>
       <div class="card c-card">
         <div class="c-icon-badge">✉️</div>
-        <h4>Email Addresses</h4>
+        <h4>{{ langService.t('contact.card_email') }}</h4>
         <p><a [href]="'mailto:' + info.email">{{ info.email }}</a></p>
         <p><a [href]="'mailto:' + info.infoEmail">{{ info.infoEmail }}</a></p>
       </div>
       <div class="card c-card">
         <div class="c-icon-badge">⏱️</div>
-        <h4>Office Timings</h4>
+        <h4>{{ langService.t('contact.card_hours') }}</h4>
         <p>{{ info.officeHours }}</p>
       </div>
     </div>
@@ -37,13 +37,13 @@
     <div class="grid grid-2 contact-action-grid" style="margin-top: 3.5rem;">
       <!-- Interactive Contact Form -->
       <div class="card form-card">
-        <div class="form-badge">Get in Touch</div>
-        <h3>Send Us a Message</h3>
-        <p class="form-sub">Our admissions counseling office is available Monday through Saturday.</p>
+        <div class="form-badge">{{ langService.t('contact.form_badge') }}</div>
+        <h3>{{ langService.t('contact.form_title') }}</h3>
+        <p class="form-sub">{{ langService.t('contact.form_sub') }}</p>
 
         <form #cForm="ngForm" (ngSubmit)="submitMessage(cForm)" class="contact-form-body">
           <div class="form-group">
-            <label class="form-label">Your Full Name *</label>
+            <label class="form-label">{{ langService.t('contact.name') }}</label>
             <input
               type="text"
               name="name"
@@ -51,16 +51,16 @@
               required
               #uName="ngModel"
               class="form-control"
-              placeholder="e.g. R. Saravanan"
+              [placeholder]="langService.t('contact.name_ph')"
             />
             @if (uName.invalid && uName.touched) {
-              <span class="form-error">Full name is required.</span>
+              <span class="form-error">{{ langService.t('contact.err_name') }}</span>
             }
           </div>
 
           <div class="form-row grid-2">
             <div class="form-group">
-              <label class="form-label">Email Address *</label>
+              <label class="form-label">{{ langService.t('contact.email') }}</label>
               <input
                 type="email"
                 name="email"
@@ -69,15 +69,15 @@
                 email
                 #uEmail="ngModel"
                 class="form-control"
-                placeholder="name@domain.com"
+                [placeholder]="langService.t('contact.email_ph')"
               />
               @if (uEmail.invalid && uEmail.touched) {
-                <span class="form-error">Valid email is required.</span>
+                <span class="form-error">{{ langService.t('contact.err_email') }}</span>
               }
             </div>
 
             <div class="form-group">
-              <label class="form-label">Mobile Number *</label>
+              <label class="form-label">{{ langService.t('contact.phone') }}</label>
               <input
                 type="tel"
                 name="phone"
@@ -86,16 +86,16 @@
                 pattern="[0-9]{10}"
                 #uPhone="ngModel"
                 class="form-control"
-                placeholder="10-digit number"
+                [placeholder]="langService.t('contact.phone_ph')"
               />
               @if (uPhone.invalid && uPhone.touched) {
-                <span class="form-error">Valid 10-digit number required.</span>
+                <span class="form-error">{{ langService.t('contact.err_phone') }}</span>
               }
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label">Subject of Enquiry *</label>
+            <label class="form-label">{{ langService.t('contact.subject') }}</label>
             <select
               name="subject"
               [(ngModel)]="contactForm.subject"
@@ -103,20 +103,20 @@
               #uSub="ngModel"
               class="form-control"
             >
-              <option value="" disabled selected>Select Subject</option>
-              <option value="Admission Enquiry">Admission Enquiry (2025 - 2026)</option>
-              <option value="Campus Tour Booking">Schedule Campus Tour</option>
-              <option value="Transport Route Enquiry">School Bus Transport Routes</option>
-              <option value="Academic Verification">Academic / TC Verification</option>
-              <option value="Other Feedback">General Query / Feedback</option>
+              <option value="" disabled selected>{{ langService.t('contact.sub_select') }}</option>
+              <option value="Admission Enquiry">{{ langService.t('contact.sub_adm') }}</option>
+              <option value="Campus Tour Booking">{{ langService.t('contact.sub_tour') }}</option>
+              <option value="Transport Route Enquiry">{{ langService.t('contact.sub_transport') }}</option>
+              <option value="Academic Verification">{{ langService.t('contact.sub_academic') }}</option>
+              <option value="Other Feedback">{{ langService.t('contact.sub_general') }}</option>
             </select>
             @if (uSub.invalid && uSub.touched) {
-              <span class="form-error">Please select an enquiry subject.</span>
+              <span class="form-error">{{ langService.t('contact.err_sub') }}</span>
             }
           </div>
 
           <div class="form-group">
-            <label class="form-label">Your Message *</label>
+            <label class="form-label">{{ langService.t('contact.message') }}</label>
             <textarea
               name="message"
               [(ngModel)]="contactForm.message"
@@ -124,15 +124,15 @@
               rows="4"
               #uMsg="ngModel"
               class="form-control"
-              placeholder="How can we assist you?"
+              [placeholder]="langService.t('contact.message_ph')"
             ></textarea>
             @if (uMsg.invalid && uMsg.touched) {
-              <span class="form-error">Message content cannot be empty.</span>
+              <span class="form-error">{{ langService.t('contact.err_msg') }}</span>
             }
           </div>
 
           <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" [disabled]="cForm.invalid">
-            <span>Send Direct Message</span>
+            <span>{{ langService.t('contact.submit') }}</span>
           </button>
         </form>
       </div>
@@ -140,12 +140,12 @@
       <!-- Campus Location Card / Map -->
       <div class="card map-card">
         <div class="map-header">
-          <h3>Campus Location Map</h3>
-          <p>Easily accessible on the Sivakasi / Madurai State Highway with designated visitor parking.</p>
+          <h3>{{ langService.t('contact.map_title') }}</h3>
+          <p>{{ langService.t('contact.map_desc') }}</p>
         </div>
 
         <div class="map-embed-container">
-          <iframe
+          <!-- <iframe
             title="School Location Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62963.26442654378!2d77.7719602!3d9.4532675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b06cee138981f21%3A0xb3bc87e91d575c32!2sSivakasi%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
             width="100%"
@@ -154,17 +154,18 @@
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
+          </iframe> -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.1014324402736!2d77.51097217533842!3d9.054511991007836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b069ed654ac92f7%3A0x20c36d8567bb943e!2sShri%20Bharath%20Kanna%20Matric%20Hr.Sec.%20School!5e0!3m2!1sen!2sin!4v1788854605486!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
 
         <div class="directions-help">
           <div class="help-item">
-            <strong>Landmarks:</strong>
-            <span>Opposite Green Valley Residential Colony, Vidya Nagar Bypass.</span>
+            <strong>{{ langService.t('contact.landmarks_label') }}</strong>
+            <span>{{ langService.t('contact.landmarks_desc') }}</span>
           </div>
           <div class="help-item">
-            <strong>Public Transport:</strong>
-            <span>Direct Town Buses available every 10 minutes from central bus terminal (Stop: Bharath Kanna School Stop).</span>
+            <strong>{{ langService.t('contact.transit_label') }}</strong>
+            <span>{{ langService.t('contact.transit_desc') }}</span>
           </div>
         </div>
       </div>

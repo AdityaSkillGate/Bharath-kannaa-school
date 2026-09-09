@@ -4,6 +4,7 @@ import { HeroBannerComponent } from '../../../core/components/hero-banner/hero-b
 import { CtaSectionComponent } from '../../../core/components/cta-section/cta-section.component';
 import { SchoolDataService } from '../../../shared/services/school-data.service';
 import { NotificationService } from '../../../shared/services/notification.service';
+import { LanguageService } from '../../../shared/services/language.service';
 import { CareerOpening } from '../../../shared/interfaces/school.interfaces';
 
 @Component({
@@ -15,15 +16,21 @@ import { CareerOpening } from '../../../shared/interfaces/school.interfaces';
 })
 export class CareersComponent {
   protected readonly schoolData = inject(SchoolDataService);
+  protected readonly langService = inject(LanguageService);
   private readonly toast = inject(NotificationService);
 
-  readonly openings = this.schoolData.getCareerOpenings();
+  get openings() {
+    return this.schoolData.getCareerOpenings(this.langService.currentLang());
+  }
+
   readonly info = this.schoolData.schoolInfo;
 
-  breadcrumbs = [
-    { label: 'About', url: '/about/about-us' },
-    { label: 'Careers' }
-  ];
+  get breadcrumbs() {
+    return [
+      { label: this.langService.t('nav.about'), url: '/about/about-us' },
+      { label: this.langService.t('about.careers') }
+    ];
+  }
 
   selectedOpening: CareerOpening | null = null;
   applicationModalOpen = false;
@@ -50,13 +57,13 @@ export class CareersComponent {
   submitApplication(form: any) {
     if (form.valid) {
       this.toast.show(
-        `Application for ${this.selectedOpening?.role} submitted successfully! Our HR team will contact you.`,
+        this.langService.t('toast.career_success', { role: this.selectedOpening?.role || '' }),
         'success'
       );
       this.closeApplication();
       form.resetForm();
     } else {
-      this.toast.show('Please fill in all mandatory fields correctly.', 'error');
+      this.toast.show(this.langService.t('toast.career_error'), 'error');
     }
   }
 }

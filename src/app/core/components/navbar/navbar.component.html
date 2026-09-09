@@ -3,16 +3,17 @@
     <!-- School Brand / Logo -->
     <a routerLink="/" class="brand-link" (click)="closeMobileMenu()">
       <div class="brand-crest">
-        <svg viewBox="0 0 48 48" class="crest-svg">
-          <circle cx="24" cy="24" r="23" fill="#0B4DA2" stroke="#F5B301" stroke-width="2"/>
-          <path d="M24 7 L37 13 L37 27 C37 34 24 41 24 41 C24 41 11 34 11 27 L11 13 Z" fill="#1A6ED8" stroke="#FFD56A" stroke-width="1.5"/>
+        <!-- <svg viewBox="0 0 48 48" class="crest-svg"> -->
+          <img src="assets/logo/bharathkannalogo.jpeg">
+          <!-- <circle cx="24" cy="24" r="23" fill="#0B4DA2" stroke="#F5B301" stroke-width="2"/> -->
+          <!-- <path d="M24 7 L37 13 L37 27 C37 34 24 41 24 41 C24 41 11 34 11 27 L11 13 Z" fill="#1A6ED8" stroke="#FFD56A" stroke-width="1.5"/> -->
           <!-- Book of Knowledge -->
-          <path d="M17 24 C20 22 24 23 24 23 C24 23 28 22 31 24 L31 31 C28 29 24 30 24 30 C24 30 20 29 17 31 Z" fill="#FFFFFF"/>
+          <!-- <path d="M17 24 C20 22 24 23 24 23 C24 23 28 22 31 24 L31 31 C28 29 24 30 24 30 C24 30 20 29 17 31 Z" fill="#FFFFFF"/> -->
           <!-- Torch / Flame -->
-          <path d="M24 14 C25.5 17 27 18 26 21 C25 21 24 19 24 19 C24 19 23 21 22 21 C21 18 22.5 17 24 14 Z" fill="#F5B301"/>
+          <!-- <path d="M24 14 C25.5 17 27 18 26 21 C25 21 24 19 24 19 C24 19 23 21 22 21 C21 18 22.5 17 24 14 Z" fill="#F5B301"/> -->
           <!-- Star of Excellence -->
-          <polygon points="24,8 25.2,11.5 28.8,11.5 25.9,13.6 27,17.1 24,15 21,17.1 22.1,13.6 19.2,11.5 22.8,11.5" fill="#FFD56A" />
-        </svg>
+          <!-- <polygon points="24,8 25.2,11.5 28.8,11.5 25.9,13.6 27,17.1 24,15 21,17.1 22.1,13.6 19.2,11.5 22.8,11.5" fill="#FFD56A" /> -->
+        <!-- </svg> -->
       </div>
       <div class="brand-text">
         <span class="brand-title">Shri Bharath Kanna</span>
@@ -26,14 +27,14 @@
       <ul class="nav-list">
         <li class="nav-item">
           <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
-            Home
+            {{ langService.t('nav.home') }}
           </a>
         </li>
 
         <!-- About Dropdown -->
         <li class="nav-item dropdown" (mouseenter)="openDropdown.set('about')" (mouseleave)="closeDropdown()">
           <button type="button" class="nav-link dropdown-toggle" [class.active]="openDropdown() === 'about'" (click)="toggleDropdown('about')">
-            <span>About Us</span>
+            <span>{{ langService.t('nav.about') }}</span>
             <svg class="dropdown-chevron" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
             </svg>
@@ -41,40 +42,40 @@
           <div class="dropdown-menu" [class.show]="openDropdown() === 'about'">
             <div class="dropdown-menu-inner">
               <a routerLink="/about/about-us" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">About Our School</span>
-                <span class="dropdown-item-desc">Our legacy, values, and campus history</span>
+                <span class="dropdown-item-title">{{ langService.t('about.overview') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('about.overview_desc') }}</span>
               </a>
               <a routerLink="/about/why-choose-us" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Why Choose Us</span>
-                <span class="dropdown-item-desc">Academic brilliance & character mentoring</span>
+                <span class="dropdown-item-title">{{ langService.t('about.why_choose') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('about.why_choose_desc') }}</span>
               </a>
               <a routerLink="/about/vision-mission" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Vision, Mission & Values</span>
-                <span class="dropdown-item-desc">Guiding principles for tomorrow's leaders</span>
+                <span class="dropdown-item-title">{{ langService.t('about.vision_mission') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('about.vision_mission_desc') }}</span>
               </a>
               <a routerLink="/about/chairman-message" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Chairman's Message</span>
-                <span class="dropdown-item-desc">A word from Dr. R. Kanna</span>
+                <span class="dropdown-item-title">{{ langService.t('about.chairman') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('about.chairman_desc') }}</span>
               </a>
               <a routerLink="/about/secretary-message" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Secretary's Message</span>
-                <span class="dropdown-item-desc">Commitment to student-centric progress</span>
+                <span class="dropdown-item-title">{{ langService.t('about.secretary') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('about.secretary_desc') }}</span>
               </a>
               <a routerLink="/about/principal-message" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Principal's Desk</span>
-                <span class="dropdown-item-desc">Pedagogical vision from Dr. K. Soundararajan</span>
+                <span class="dropdown-item-title">{{ langService.t('about.principal') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('about.principal_desc') }}</span>
               </a>
               <a routerLink="/about/our-trust" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Our Trust</span>
-                <span class="dropdown-item-desc">The educational foundation & board</span>
+                <span class="dropdown-item-title">{{ langService.t('about.trust') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('about.trust_desc') }}</span>
               </a>
               <a routerLink="/about/leadership-team" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Leadership Team</span>
-                <span class="dropdown-item-desc">Academic coordinators & department heads</span>
+                <span class="dropdown-item-title">{{ langService.t('about.leadership') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('about.leadership_desc') }}</span>
               </a>
               <a routerLink="/about/careers" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Careers</span>
-                <span class="dropdown-item-desc">Join our passionate educational family</span>
+                <span class="dropdown-item-title">{{ langService.t('about.careers') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('about.careers_desc') }}</span>
               </a>
             </div>
           </div>
@@ -83,14 +84,14 @@
         <!-- Academics -->
         <li class="nav-item">
           <a routerLink="/academics" routerLinkActive="active" class="nav-link">
-            Academics
+            {{ langService.t('nav.academics') }}
           </a>
         </li>
 
         <!-- Activities Dropdown -->
         <li class="nav-item dropdown" (mouseenter)="openDropdown.set('activities')" (mouseleave)="closeDropdown()">
           <button type="button" class="nav-link dropdown-toggle" [class.active]="openDropdown() === 'activities'" (click)="toggleDropdown('activities')">
-            <span>Activities</span>
+            <span>{{ langService.t('nav.activities') }}</span>
             <svg class="dropdown-chevron" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
             </svg>
@@ -98,20 +99,20 @@
           <div class="dropdown-menu" [class.show]="openDropdown() === 'activities'">
             <div class="dropdown-menu-inner">
               <a routerLink="/activities/student-development" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Student Development & Clubs</span>
-                <span class="dropdown-item-desc">Robotics, literary, coding & scouts</span>
+                <span class="dropdown-item-title">{{ langService.t('act.student_dev') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('act.student_dev_desc') }}</span>
               </a>
               <a routerLink="/activities/sports-achievements" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Sports & Physical Education</span>
-                <span class="dropdown-item-desc">Track events, tournaments & trophies</span>
+                <span class="dropdown-item-title">{{ langService.t('act.sports') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('act.sports_desc') }}</span>
               </a>
               <a routerLink="/activities/photo-gallery" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Photo Gallery</span>
-                <span class="dropdown-item-desc">Capturing campus life & celebrations</span>
+                <span class="dropdown-item-title">{{ langService.t('act.photo_gallery') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('act.photo_gallery_desc') }}</span>
               </a>
               <a routerLink="/activities/video-gallery" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Video Gallery</span>
-                <span class="dropdown-item-desc">Campus walkthrough & events highlights</span>
+                <span class="dropdown-item-title">{{ langService.t('act.video_gallery') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('act.video_gallery_desc') }}</span>
               </a>
             </div>
           </div>
@@ -120,7 +121,7 @@
         <!-- Admissions Dropdown -->
         <li class="nav-item dropdown" (mouseenter)="openDropdown.set('admissions')" (mouseleave)="closeDropdown()">
           <button type="button" class="nav-link dropdown-toggle" [class.active]="openDropdown() === 'admissions'" (click)="toggleDropdown('admissions')">
-            <span>Admissions</span>
+            <span>{{ langService.t('nav.admissions') }}</span>
             <svg class="dropdown-chevron" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
             </svg>
@@ -128,16 +129,16 @@
           <div class="dropdown-menu" [class.show]="openDropdown() === 'admissions'">
             <div class="dropdown-menu-inner">
               <a routerLink="/admissions/admissions" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Admission Process</span>
-                <span class="dropdown-item-desc">Eligibility, criteria & registration form</span>
+                <span class="dropdown-item-title">{{ langService.t('adm.process') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('adm.process_desc') }}</span>
               </a>
               <a routerLink="/admissions/parents-corner" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Parents' Corner</span>
-                <span class="dropdown-item-desc">Timings, uniforms, PTA & parent handbook</span>
+                <span class="dropdown-item-title">{{ langService.t('adm.parents_corner') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('adm.parents_corner_desc') }}</span>
               </a>
               <a routerLink="/admissions/rules-regulations" class="dropdown-item" (click)="closeDropdown()">
-                <span class="dropdown-item-title">Rules & Regulations</span>
-                <span class="dropdown-item-desc">Code of conduct & campus discipline</span>
+                <span class="dropdown-item-title">{{ langService.t('adm.rules') }}</span>
+                <span class="dropdown-item-desc">{{ langService.t('adm.rules_desc') }}</span>
               </a>
             </div>
           </div>
@@ -146,14 +147,14 @@
         <!-- Facilities -->
         <li class="nav-item">
           <a routerLink="/facilities" routerLinkActive="active" class="nav-link">
-            Facilities
+            {{ langService.t('nav.facilities') }}
           </a>
         </li>
 
         <!-- Contact -->
         <li class="nav-item">
           <a routerLink="/contact" routerLinkActive="active" class="nav-link">
-            Contact
+            {{ langService.t('nav.contact') }}
           </a>
         </li>
       </ul>
@@ -165,7 +166,7 @@
         <svg viewBox="0 0 20 20" fill="currentColor" class="btn-icon">
           <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
         </svg>
-        <span>Admissions Open</span>
+        <span>{{ langService.t('nav.apply_now') }}</span>
       </a>
 
       <!-- Mobile Hamburger Toggle -->
@@ -185,48 +186,60 @@
   <!-- Mobile Drawer Menu -->
   <div class="mobile-drawer" [class.is-open]="mobileMenuOpen()">
     <div class="mobile-drawer-inner">
+      <!-- Mobile Language Switcher -->
+      <div class="mobile-lang-row">
+        <button type="button" class="mobile-lang-btn" (click)="langService.toggleLanguage()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lang-icon">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span>{{ langService.isTamil() ? 'Switch to English' : 'தமிழுக்கு மாறுக (Tamil)' }}</span>
+        </button>
+      </div>
+
       <ul class="mobile-nav-list">
-        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">Home</a></li>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">{{ langService.t('nav.home') }}</a></li>
 
         <!-- Mobile About Section -->
         <li class="mobile-group">
           <div class="mobile-group-header" (click)="toggleDropdown('m-about')">
-            <span>About Us</span>
+            <span>{{ langService.t('nav.about') }}</span>
             <svg class="dropdown-chevron" [class.rotate]="openDropdown() === 'm-about'" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
             </svg>
           </div>
           @if (openDropdown() === 'm-about') {
             <ul class="mobile-sublist">
-              <li><a routerLink="/about/about-us" (click)="closeMobileMenu()">About Our School</a></li>
-              <li><a routerLink="/about/why-choose-us" (click)="closeMobileMenu()">Why Choose Us</a></li>
-              <li><a routerLink="/about/vision-mission" (click)="closeMobileMenu()">Vision & Mission</a></li>
-              <li><a routerLink="/about/chairman-message" (click)="closeMobileMenu()">Chairman's Message</a></li>
-              <li><a routerLink="/about/secretary-message" (click)="closeMobileMenu()">Secretary's Message</a></li>
-              <li><a routerLink="/about/principal-message" (click)="closeMobileMenu()">Principal's Desk</a></li>
-              <li><a routerLink="/about/our-trust" (click)="closeMobileMenu()">Our Trust</a></li>
-              <li><a routerLink="/about/leadership-team" (click)="closeMobileMenu()">Leadership Team</a></li>
-              <li><a routerLink="/about/careers" (click)="closeMobileMenu()">Careers</a></li>
+              <li><a routerLink="/about/about-us" (click)="closeMobileMenu()">{{ langService.t('about.overview') }}</a></li>
+              <li><a routerLink="/about/why-choose-us" (click)="closeMobileMenu()">{{ langService.t('about.why_choose') }}</a></li>
+              <li><a routerLink="/about/vision-mission" (click)="closeMobileMenu()">{{ langService.t('about.vision_mission') }}</a></li>
+              <li><a routerLink="/about/chairman-message" (click)="closeMobileMenu()">{{ langService.t('about.chairman') }}</a></li>
+              <li><a routerLink="/about/secretary-message" (click)="closeMobileMenu()">{{ langService.t('about.secretary') }}</a></li>
+              <li><a routerLink="/about/principal-message" (click)="closeMobileMenu()">{{ langService.t('about.principal') }}</a></li>
+              <li><a routerLink="/about/our-trust" (click)="closeMobileMenu()">{{ langService.t('about.trust') }}</a></li>
+              <li><a routerLink="/about/leadership-team" (click)="closeMobileMenu()">{{ langService.t('about.leadership') }}</a></li>
+              <li><a routerLink="/about/careers" (click)="closeMobileMenu()">{{ langService.t('about.careers') }}</a></li>
             </ul>
           }
         </li>
 
-        <li><a routerLink="/academics" routerLinkActive="active" (click)="closeMobileMenu()">Academics</a></li>
+        <li><a routerLink="/academics" routerLinkActive="active" (click)="closeMobileMenu()">{{ langService.t('nav.academics') }}</a></li>
 
         <!-- Mobile Activities Section -->
         <li class="mobile-group">
           <div class="mobile-group-header" (click)="toggleDropdown('m-activities')">
-            <span>Activities</span>
+            <span>{{ langService.t('nav.activities') }}</span>
             <svg class="dropdown-chevron" [class.rotate]="openDropdown() === 'm-activities'" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
             </svg>
           </div>
           @if (openDropdown() === 'm-activities') {
             <ul class="mobile-sublist">
-              <li><a routerLink="/activities/student-development" (click)="closeMobileMenu()">Student Development</a></li>
-              <li><a routerLink="/activities/sports-achievements" (click)="closeMobileMenu()">Sports & Achievements</a></li>
-              <li><a routerLink="/activities/photo-gallery" (click)="closeMobileMenu()">Photo Gallery</a></li>
-              <li><a routerLink="/activities/video-gallery" (click)="closeMobileMenu()">Video Gallery</a></li>
+              <li><a routerLink="/activities/student-development" (click)="closeMobileMenu()">{{ langService.t('act.student_dev') }}</a></li>
+              <li><a routerLink="/activities/sports-achievements" (click)="closeMobileMenu()">{{ langService.t('act.sports') }}</a></li>
+              <li><a routerLink="/activities/photo-gallery" (click)="closeMobileMenu()">{{ langService.t('act.photo_gallery') }}</a></li>
+              <li><a routerLink="/activities/video-gallery" (click)="closeMobileMenu()">{{ langService.t('act.video_gallery') }}</a></li>
             </ul>
           }
         </li>
@@ -234,28 +247,28 @@
         <!-- Mobile Admissions Section -->
         <li class="mobile-group">
           <div class="mobile-group-header" (click)="toggleDropdown('m-admissions')">
-            <span>Admissions</span>
+            <span>{{ langService.t('nav.admissions') }}</span>
             <svg class="dropdown-chevron" [class.rotate]="openDropdown() === 'm-admissions'" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
             </svg>
           </div>
           @if (openDropdown() === 'm-admissions') {
             <ul class="mobile-sublist">
-              <li><a routerLink="/admissions/admissions" (click)="closeMobileMenu()">Admissions Process</a></li>
-              <li><a routerLink="/admissions/parents-corner" (click)="closeMobileMenu()">Parents' Corner</a></li>
-              <li><a routerLink="/admissions/rules-regulations" (click)="closeMobileMenu()">Rules & Regulations</a></li>
+              <li><a routerLink="/admissions/admissions" (click)="closeMobileMenu()">{{ langService.t('adm.process') }}</a></li>
+              <li><a routerLink="/admissions/parents-corner" (click)="closeMobileMenu()">{{ langService.t('adm.parents_corner') }}</a></li>
+              <li><a routerLink="/admissions/rules-regulations" (click)="closeMobileMenu()">{{ langService.t('adm.rules') }}</a></li>
             </ul>
           }
         </li>
 
-        <li><a routerLink="/facilities" routerLinkActive="active" (click)="closeMobileMenu()">Facilities</a></li>
-        <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact</a></li>
-        <li><a routerLink="/mandatory-public-disclosure" routerLinkActive="active" (click)="closeMobileMenu()">Mandatory Public Disclosure</a></li>
+        <li><a routerLink="/facilities" routerLinkActive="active" (click)="closeMobileMenu()">{{ langService.t('nav.facilities') }}</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">{{ langService.t('nav.contact') }}</a></li>
+        <li><a routerLink="/mandatory-public-disclosure" routerLinkActive="active" (click)="closeMobileMenu()">{{ langService.t('nav.disclosure') }}</a></li>
       </ul>
 
       <div class="mobile-drawer-footer">
         <a routerLink="/admissions/admissions" class="btn btn-accent btn-lg" (click)="closeMobileMenu()">
-          Apply for Admission
+          {{ langService.t('nav.enquire') }}
         </a>
       </div>
     </div>

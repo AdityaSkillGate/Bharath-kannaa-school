@@ -55,11 +55,26 @@
         </div>
         <div class="chat-header-text">
           <h3 id="chat-assistant-title" class="chat-bot-name">{{ chatbotName }}</h3>
-          <span class="chat-status-text">Online • Instant Answers</span>
+          <span class="chat-status-text">{{ langService.t('chat.online') }}</span>
         </div>
       </div>
 
       <div class="chat-header-actions">
+        <!-- Bilingual Toggle Pill (EN / தமிழ்) -->
+        <button
+          type="button"
+          class="header-lang-btn"
+          (click)="toggleChatLanguage()"
+          [title]="langService.isTamil() ? 'Switch to English' : 'தமிழுக்கு மாறுக'"
+          aria-label="Switch language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="lang-globe-icon">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="lang-text-pill">{{ langService.isTamil() ? 'English' : 'தமிழ்' }}</span>
+        </button>
+
         <!-- Voice Response Speaker Toggle -->
         <button
           type="button"
@@ -140,27 +155,53 @@
 
           <div class="msg-bubble-wrapper">
             <div class="msg-bubble" [class.user-bubble]="msg.sender === 'user'" [class.bot-bubble]="msg.sender === 'bot'">
-              <!-- Plain text with line breaks and markdown boldness -->
               <div class="msg-text" [innerHTML]="msg.text | slice:0"></div>
-              <span class="msg-timestamp">{{ msg.timestamp }}</span>
+              <div class="msg-meta-row">
+                <span class="msg-timestamp">{{ msg.timestamp }}</span>
+                @if (msg.sender === 'bot') {
+                  <button
+                    type="button"
+                    class="msg-listen-chip"
+                    [class.is-playing]="chatService.isSpeaking() && currentlySpokenMsgId() === msg.id"
+                    (click)="speakMessage(msg)"
+                    [title]="langService.isTamil() ? 'குரலில் கேட்க (Listen in Tamil)' : 'Listen to response'"
+                    aria-label="Listen">
+                    @if (chatService.isSpeaking() && currentlySpokenMsgId() === msg.id) {
+                      <span class="speaking-waves">
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                      </span>
+                      <span>{{ langService.isTamil() ? 'நிறுத்து' : 'Stop' }}</span>
+                    } @else {
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="listen-icon">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                      </svg>
+                      <span>{{ langService.isTamil() ? 'குரல்' : 'Listen' }}</span>
+                    }
+                  </button>
+                }
+              </div>
             </div>
 
             <!-- Fallback Actions Container (when bot couldn't find info) -->
             @if (msg.showFallbackActions) {
               <div class="fallback-action-container">
-                <p class="fallback-note">Quick support options:</p>
+                <p class="fallback-note">{{ langService.t('chat.quick_options') }}</p>
                 <div class="fallback-buttons-group">
                   <button type="button" class="fallback-btn call-school-btn" (click)="callSchool()">
                     <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"/></svg>
-                    <span>Contact School</span>
+                    <span>{{ langService.t('chat.call') }}</span>
                   </button>
                   <button type="button" class="fallback-btn whatsapp-btn" (click)="openWhatsApp()">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-                    <span>WhatsApp</span>
+                    <span>{{ langService.t('chat.whatsapp') }}</span>
                   </button>
                   <button type="button" class="fallback-btn admission-lead-btn" (click)="openLeadModal()">
                     <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
-                    <span>Admission Form</span>
+                    <span>{{ langService.t('chat.admission_form') }}</span>
                   </button>
                 </div>
               </div>
@@ -219,7 +260,7 @@
           class="voice-input-btn"
           [class.recording]="isListening()"
           (click)="toggleVoiceInput()"
-          [title]="isListening() ? 'Listening... Click to stop' : 'Click to Speak (Voice Input)'"
+          [title]="isListening() ? (langService.isTamil() ? 'கேட்கிறது... நிறுத்த கிளிக் செய்க' : 'Listening... Click to stop') : (langService.isTamil() ? 'குரல் மூலம் பேச கிளிக் செய்க' : 'Click to Speak (Voice Input)')"
           aria-label="Voice input">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
@@ -234,7 +275,7 @@
           #chatInput
           type="text"
           class="chat-text-input"
-          placeholder="Ask admissions, fees, timings..."
+          [placeholder]="langService.t('chat.placeholder')"
           [(ngModel)]="userInput"
           name="userQuery"
           autocomplete="off"
@@ -256,7 +297,7 @@
       @if (isListening()) {
         <div class="listening-bar">
           <span class="listening-pulse"></span>
-          <span>Listening to your voice... Speak now</span>
+          <span>{{ langService.t('chat.listening') }}</span>
         </div>
       }
     </footer>
@@ -266,43 +307,49 @@
       <div class="lead-modal-overlay">
         <div class="lead-modal-card">
           <div class="lead-modal-header">
-            <h4>Quick Admission Lead Capture</h4>
+            <h4>{{ langService.t('chat.lead_title') }}</h4>
             <button type="button" class="lead-close-btn" (click)="closeLeadModal()">&times;</button>
           </div>
-          <p class="lead-modal-desc">Leave your details and our admission counselor will contact you within 24 hours.</p>
+          <p class="lead-modal-desc">
+            {{ langService.t('chat.lead_desc') }}
+          </p>
 
           <form (ngSubmit)="submitLead()" class="lead-form">
             <div class="lead-form-group">
-              <label>Parent / Guardian Name *</label>
-              <input type="text" [(ngModel)]="leadData.parentName" name="parentName" required placeholder="e.g. Ramesh Kumar" />
+              <label>{{ langService.t('chat.lead_parent') }}</label>
+              <input type="text" [(ngModel)]="leadData.parentName" name="parentName" required [placeholder]="langService.t('chat.lead_parent_ph')" />
             </div>
 
             <div class="lead-form-group">
-              <label>Phone Number *</label>
-              <input type="tel" [(ngModel)]="leadData.phone" name="phone" required placeholder="e.g. 9876543210" />
+              <label>{{ langService.t('chat.lead_phone') }}</label>
+              <input type="tel" [(ngModel)]="leadData.phone" name="phone" required [placeholder]="langService.t('chat.lead_phone_ph')" />
             </div>
 
             <div class="lead-form-group">
-              <label>Student Grade Interested *</label>
+              <label>{{ langService.t('chat.lead_grade') }}</label>
               <select [(ngModel)]="leadData.studentGrade" name="studentGrade" required>
-                <option value="Kindergarten (Pre-KG / LKG / UKG)">Kindergarten (Pre-KG / LKG / UKG)</option>
-                <option value="Primary Wing (Class 1 - 5)">Primary Wing (Class 1 - 5)</option>
-                <option value="Middle School (Class 6 - 8)">Middle School (Class 6 - 8)</option>
-                <option value="Secondary (Class 9 - 10)">Secondary (Class 9 - 10)</option>
-                <option value="Class 11 - Bio-Maths Stream">Class 11 - Bio-Maths Stream</option>
-                <option value="Class 11 - Computer Science Stream">Class 11 - Computer Science Stream</option>
-                <option value="Class 11 - Commerce / Business Stream">Class 11 - Commerce / Business Stream</option>
+                <option value="Kindergarten (Pre-KG / LKG / UKG)">{{ langService.isTamil() ? 'மழலையர் பிரிவு (Pre-KG / LKG / UKG)' : 'Kindergarten (Pre-KG / LKG / UKG)' }}</option>
+                <option value="Primary Wing (Class 1 - 5)">{{ langService.isTamil() ? 'தொடக்கப் பள்ளி (வகுப்பு 1 - 5)' : 'Primary Wing (Class 1 - 5)' }}</option>
+                <option value="Middle School (Class 6 - 8)">{{ langService.isTamil() ? 'நடுநிலைப் பள்ளி (வகுப்பு 6 - 8)' : 'Middle School (Class 6 - 8)' }}</option>
+                <option value="Secondary (Class 9 - 10)">{{ langService.isTamil() ? 'உயர்நிலைப் பள்ளி (வகுப்பு 9 - 10)' : 'Secondary (Class 9 - 10)' }}</option>
+                <option value="Class 11 - Bio-Maths Stream">{{ langService.isTamil() ? '11-ஆம் வகுப்பு - Bio-Maths பிரிவு' : 'Class 11 - Bio-Maths Stream' }}</option>
+                <option value="Class 11 - Computer Science Stream">{{ langService.isTamil() ? '11-ஆம் வகுப்பு - கணினி அறிவியல் பிரிவு' : 'Class 11 - Computer Science Stream' }}</option>
+                <option value="Class 11 - Commerce / Business Stream">{{ langService.isTamil() ? '11-ஆம் வகுப்பு - வணிகவியல் பிரிவு' : 'Class 11 - Commerce / Business Stream' }}</option>
               </select>
             </div>
 
             <div class="lead-form-group">
-              <label>Questions / Notes (Optional)</label>
-              <input type="text" [(ngModel)]="leadData.message" name="message" placeholder="e.g. Need bus route from Ganapathy" />
+              <label>{{ langService.t('chat.lead_notes') }}</label>
+              <input type="text" [(ngModel)]="leadData.message" name="message" [placeholder]="langService.t('chat.lead_notes_ph')" />
             </div>
 
             <div class="lead-form-actions">
-              <button type="button" class="btn btn-sm btn-outline-primary" (click)="closeLeadModal()">Cancel</button>
-              <button type="submit" class="btn btn-sm btn-accent">Submit Enquiry</button>
+              <button type="button" class="btn btn-sm btn-outline-primary" (click)="closeLeadModal()">
+                {{ langService.t('chat.lead_cancel') }}
+              </button>
+              <button type="submit" class="btn btn-sm btn-accent">
+                {{ langService.t('chat.lead_submit') }}
+              </button>
             </div>
           </form>
         </div>

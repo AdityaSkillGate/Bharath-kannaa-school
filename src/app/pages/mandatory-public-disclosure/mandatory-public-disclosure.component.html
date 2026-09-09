@@ -1,7 +1,7 @@
 <app-hero-banner
-  badge="Statutory Transparency"
-  title="Mandatory Public Disclosure"
-  subtitle="Official regulatory certifications, legal affiliations, fee orders, and board examination performance indices."
+  [badge]="langService.t('mpd.banner_badge')"
+  [title]="langService.t('mpd.banner_title')"
+  [subtitle]="langService.t('mpd.banner_sub')"
   [breadcrumbs]="breadcrumbs">
 </app-hero-banner>
 
@@ -10,47 +10,47 @@
     <!-- Section A: General Information -->
     <div class="card disclosure-card">
       <div class="d-header">
-        <span class="d-badge">Appendix IX & Section A</span>
-        <h3>General Institutional Information</h3>
+        <span class="d-badge">{{ langService.t('mpd.sec_a_badge') }}</span>
+        <h3>{{ langService.t('mpd.sec_a_title') }}</h3>
       </div>
       <div class="table-responsive">
         <table class="disclosure-table">
           <thead>
             <tr>
-              <th style="width: 80px;">S.No</th>
-              <th style="width: 320px;">Information Parameter</th>
-              <th>Official Institutional Details</th>
+              <th style="width: 80px;">{{ langService.t('mpd.th_sno') }}</th>
+              <th style="width: 320px;">{{ langService.t('mpd.th_param') }}</th>
+              <th>{{ langService.t('mpd.th_details') }}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>1</td>
-              <td><strong>Name of the School</strong></td>
+              <td><strong>{{ langService.t('mpd.p_name') }}</strong></td>
               <td>{{ info.name }}</td>
             </tr>
             <tr>
               <td>2</td>
-              <td><strong>Affiliation / Recognition Code</strong></td>
-              <td>{{ info.recognitionCode }} (Govt. of Tamil Nadu)</td>
+              <td><strong>{{ langService.t('mpd.p_code') }}</strong></td>
+              <td>{{ info.recognitionCode }} {{ langService.t('mpd.p_code_govt') }}</td>
             </tr>
             <tr>
               <td>3</td>
-              <td><strong>Complete Postal Address</strong></td>
+              <td><strong>{{ langService.t('mpd.p_address') }}</strong></td>
               <td>{{ info.address }}</td>
             </tr>
             <tr>
               <td>4</td>
-              <td><strong>Principal Name & Qualification</strong></td>
+              <td><strong>{{ langService.t('mpd.p_principal') }}</strong></td>
               <td>Dr. K. Soundararajan, M.Sc., M.Phil., Ph.D., B.Ed.</td>
             </tr>
             <tr>
               <td>5</td>
-              <td><strong>School Official Email ID</strong></td>
+              <td><strong>{{ langService.t('mpd.p_email') }}</strong></td>
               <td>{{ info.infoEmail }}</td>
             </tr>
             <tr>
               <td>6</td>
-              <td><strong>Administrative Contact Numbers</strong></td>
+              <td><strong>{{ langService.t('mpd.p_phone') }}</strong></td>
               <td>{{ info.phone }} / {{ info.secondaryPhone }}</td>
             </tr>
           </tbody>
@@ -61,18 +61,18 @@
     <!-- Section B: Documents and Information -->
     <div class="card disclosure-card" style="margin-top: 2.5rem;">
       <div class="d-header">
-        <span class="d-badge">Section B</span>
-        <h3>Certificates & Regulatory Documents</h3>
+        <span class="d-badge">{{ langService.t('mpd.sec_b_badge') }}</span>
+        <h3>{{ langService.t('mpd.sec_b_title') }}</h3>
       </div>
       <div class="table-responsive">
         <table class="disclosure-table">
           <thead>
             <tr>
-              <th style="width: 100px;">Doc No.</th>
-              <th>Title / Description of Document</th>
-              <th>Category</th>
-              <th>Issue Date</th>
-              <th style="text-align: right;">Action</th>
+              <th style="width: 100px;">{{ langService.t('mpd.th_docno') }}</th>
+              <th>{{ langService.t('mpd.th_doctitle') }}</th>
+              <th>{{ langService.t('mpd.th_doccat') }}</th>
+              <th>{{ langService.t('mpd.th_docdate') }}</th>
+              <th style="text-align: right;">{{ langService.t('mpd.th_action') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -84,7 +84,7 @@
                 <td>{{ doc.issueDate }}</td>
                 <td style="text-align: right;">
                   <button type="button" class="btn btn-outline-primary btn-sm" (click)="downloadDoc(doc)">
-                    <span>Download ({{ doc.fileSize }})</span>
+                    <span>{{ langService.t('mpd.btn_download') }} ({{ doc.fileSize }})</span>
                   </button>
                 </td>
               </tr>
@@ -97,21 +97,21 @@
     <!-- Section C: Results Analysis -->
     <div class="card disclosure-card" style="margin-top: 2.5rem;">
       <div class="d-header">
-        <span class="d-badge">Section C</span>
-        <h3>Last 3 Years Board Examination Result Analysis</h3>
+        <span class="d-badge">{{ langService.t('mpd.sec_c_badge') }}</span>
+        <h3>{{ langService.t('mpd.sec_c_title') }}</h3>
       </div>
 
-      <h4 class="sub-table-title">Class 10 (SSLC / Secondary Board Examination)</h4>
+      <h4 class="sub-table-title">{{ langService.t('mpd.sub_c10') }}</h4>
       <div class="table-responsive">
         <table class="disclosure-table">
           <thead>
             <tr>
-              <th>Academic Year</th>
-              <th>Registered</th>
-              <th>Passed</th>
-              <th>Pass %</th>
-              <th>Centum Scores</th>
-              <th>School Highest Marks</th>
+              <th>{{ langService.t('mpd.th_year') }}</th>
+              <th>{{ langService.t('mpd.th_reg') }}</th>
+              <th>{{ langService.t('mpd.th_passed') }}</th>
+              <th>{{ langService.t('mpd.th_pass_pct') }}</th>
+              <th>{{ langService.t('mpd.th_centums') }}</th>
+              <th>{{ langService.t('mpd.th_topper') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -121,7 +121,7 @@
                 <td>{{ r.registered }}</td>
                 <td>{{ r.passed }}</td>
                 <td class="pass-cent">{{ r.passPercentage }}</td>
-                <td>{{ r.centums }} Subjects</td>
+                <td>{{ r.centums }} {{ langService.t('mpd.subjects_word') }}</td>
                 <td><strong>{{ r.schoolTopper }}</strong></td>
               </tr>
             }
@@ -129,17 +129,17 @@
         </table>
       </div>
 
-      <h4 class="sub-table-title" style="margin-top: 2rem;">Class 12 (HSC / Senior Secondary Board Examination)</h4>
+      <h4 class="sub-table-title" style="margin-top: 2rem;">{{ langService.t('mpd.sub_c12') }}</h4>
       <div class="table-responsive">
         <table class="disclosure-table">
           <thead>
             <tr>
-              <th>Academic Year</th>
-              <th>Registered</th>
-              <th>Passed</th>
-              <th>Pass %</th>
-              <th>Centum Scores</th>
-              <th>School Highest Marks</th>
+              <th>{{ langService.t('mpd.th_year') }}</th>
+              <th>{{ langService.t('mpd.th_reg') }}</th>
+              <th>{{ langService.t('mpd.th_passed') }}</th>
+              <th>{{ langService.t('mpd.th_pass_pct') }}</th>
+              <th>{{ langService.t('mpd.th_centums') }}</th>
+              <th>{{ langService.t('mpd.th_topper') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -149,7 +149,7 @@
                 <td>{{ r.registered }}</td>
                 <td>{{ r.passed }}</td>
                 <td class="pass-cent">{{ r.passPercentage }}</td>
-                <td>{{ r.centums }} Subjects</td>
+                <td>{{ r.centums }} {{ langService.t('mpd.subjects_word') }}</td>
                 <td><strong>{{ r.schoolTopper }}</strong></td>
               </tr>
             }

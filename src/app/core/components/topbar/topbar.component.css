@@ -81,6 +81,32 @@
   transform: translateY(-2px);
 }
 
+.topbar-lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.65rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(245, 179, 1, 0.45);
+  color: var(--accent);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.topbar-lang-toggle:hover {
+  background: var(--accent);
+  color: #062b5d;
+  box-shadow: 0 2px 8px rgba(245, 179, 1, 0.35);
+}
+
+.topbar-lang-icon {
+  width: 12px;
+  height: 12px;
+}
+
 .topbar-disclosure-btn {
   display: inline-flex;
   align-items: center;

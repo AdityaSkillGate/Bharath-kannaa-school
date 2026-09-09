@@ -53,7 +53,7 @@
   <div class="container ticker-container">
     <div class="ticker-label">
       <span class="ticker-pulse"></span>
-      <span>LATEST NOTICES</span>
+      <span>{{ langService.t('home.ticker_label') }}</span>
     </div>
     <div class="ticker-content">
       @for (item of news; track item.id) {
@@ -107,45 +107,45 @@
             class="overview-img-main"
           />
           <div class="overview-experience-card">
-            <span class="exp-number">25+</span>
-            <span class="exp-text">Years of Empowering Young Minds</span>
+            <span class="exp-number">{{ langService.t('home.overview_exp_years') }}</span>
+            <span class="exp-text">{{ langService.t('home.overview_exp_text') }}</span>
           </div>
         </div>
       </div>
 
       <div class="overview-text">
-        <div class="section-badge">Welcome to SBKMHSS</div>
-        <h2 class="section-title">Nurturing Intellectual Depth & <span class="highlight">Uncompromising Integrity</span></h2>
+        <div class="section-badge">{{ langService.t('home.overview_badge') }}</div>
+        <h2 class="section-title">{{ langService.t('home.overview_title_prefix') }} <span class="highlight">{{ langService.t('home.overview_title_highlight') }}</span></h2>
         <p class="lead">
-          Founded in 1998, <strong>Shri Bharath Kanna Matriculation Higher Secondary School</strong> stands as a landmark of pedagogical distinction and character building in our region.
+          {{ langService.t('home.overview_lead') }}
         </p>
         <p>
-          We provide a stimulating learning atmosphere where modern technological literacy intertwines with traditional moral values. Our students develop creative curiosity, emotional balance, scientific inquiry, and leadership agility necessary to thrive in a dynamically evolving world.
+          {{ langService.t('home.overview_desc') }}
         </p>
 
         <div class="overview-highlights">
           <div class="highlight-item">
             <div class="highlight-icon">✓</div>
             <div>
-              <h5>State Board & NEET/JEE Integrated Curriculum</h5>
-              <p>Strong fundamental mastery paired with competitive coaching modules.</p>
+              <h5>{{ langService.t('home.overview_hl1_title') }}</h5>
+              <p>{{ langService.t('home.overview_hl1_desc') }}</p>
             </div>
           </div>
           <div class="highlight-item">
             <div class="highlight-icon">✓</div>
             <div>
-              <h5>Spacious Multi-Acre Lush Green Campus</h5>
-              <p>Safe, noise-free learning ecosystem with modern sports complex and laboratories.</p>
+              <h5>{{ langService.t('home.overview_hl2_title') }}</h5>
+              <p>{{ langService.t('home.overview_hl2_desc') }}</p>
             </div>
           </div>
         </div>
 
         <div class="overview-actions">
           <a routerLink="/about/about-us" class="btn btn-primary">
-            <span>Read Complete History</span>
+            <span>{{ langService.t('home.overview_btn1') }}</span>
           </a>
           <a routerLink="/about/vision-mission" class="btn btn-outline-primary">
-            <span>Our Vision & Values</span>
+            <span>{{ langService.t('home.overview_btn2') }}</span>
           </a>
         </div>
       </div>
@@ -161,9 +161,9 @@
 
   <div class="container relative-content">
     <app-page-header
-      badge="Why Choose Us"
-      title="The Hallmarks of Our Educational Excellence"
-      subtitle="Discover what elevates Shri Bharath Kanna School into a beacon of trusted excellence for thousands of parents and students.">
+      [badge]="langService.t('home.why_badge')"
+      [title]="langService.t('home.why_title')"
+      [subtitle]="langService.t('home.why_sub')">
     </app-page-header>
 
     <div class="grid grid-3 features-grid">
@@ -227,7 +227,7 @@
 
           <div class="feature-card-footer">
             <span class="card-learn-more">
-              <span>Explore Advantage</span>
+              <span>{{ langService.t('home.why_explore') }}</span>
               <svg viewBox="0 0 20 20" fill="currentColor" class="learn-arrow">
                 <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
@@ -245,9 +245,9 @@
   <div class="academic-ambient-orb orb-2"></div>
   <div class="container relative-z">
     <app-page-header
-      badge="Academic Structure"
-      title="Comprehensive Educational Pathways"
-      subtitle="Structured pedagogical wings catering to each developmental phase of your child's cognitive and emotional growth."
+      [badge]="langService.t('home.acad_badge')"
+      [title]="langService.t('home.acad_title')"
+      [subtitle]="langService.t('home.acad_sub')"
       theme="dark">
     </app-page-header>
 
@@ -256,14 +256,14 @@
         <div class="card wing-card wing-stage-{{ i + 1 }}" [style.--wing-index]="i">
           <div class="wing-card-top-bar"></div>
           <div class="wing-stage-header">
-            <span class="wing-stage-number">Stage 0{{ i + 1 }}</span>
+            <span class="wing-stage-number">{{ langService.t('home.acad_stage') }} 0{{ i + 1 }}</span>
             <div class="wing-tag">{{ wing.grades }}</div>
           </div>
           <h4 class="wing-title">{{ wing.title }}</h4>
-          <span class="wing-age">Age: {{ wing.ageGroup }}</span>
+          <span class="wing-age">{{ langService.t('home.acad_age') }}: {{ wing.ageGroup }}</span>
           <p class="wing-desc">{{ wing.description }}</p>
           <div class="wing-focus">
-            <strong>Key Focus:</strong>
+            <strong>{{ langService.t('home.acad_focus') }}:</strong>
             <span>{{ wing.focus }}</span>
           </div>
           <div class="wing-glow-corner"></div>
@@ -273,7 +273,7 @@
 
     <div class="text-center" style="margin-top: 3.5rem;">
       <a routerLink="/academics" class="btn btn-accent btn-lg academic-cta-btn">
-        <span>Explore Full Academics & Curriculum Details</span>
+        <span>{{ langService.t('home.acad_btn') }}</span>
         <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
       </a>
     </div>
@@ -284,9 +284,9 @@
 <section class="section facilities-preview">
   <div class="container">
     <app-page-header
-      badge="Campus Facilities"
-      title="World-Class Learning Infrastructure"
-      subtitle="Engineered with care to ensure students have every resource necessary for academic inquiry, physical fitness, and creative expression.">
+      [badge]="langService.t('home.fac_badge')"
+      [title]="langService.t('home.fac_title')"
+      [subtitle]="langService.t('home.fac_sub')">
     </app-page-header>
 
     <div class="grid grid-2 facilities-grid">
@@ -295,7 +295,7 @@
           <div class="facility-image img-zoom-container">
             <img [src]="fac.imageUrl" [alt]="fac.title" loading="lazy" />
             <div class="facility-image-overlay">
-              <span class="facility-category-chip">Smart Campus</span>
+              <span class="facility-category-chip">{{ langService.t('home.fac_chip') }}</span>
             </div>
             <div class="image-shine-sweep"></div>
           </div>
@@ -320,7 +320,7 @@
 
     <div class="text-center" style="margin-top: 3.5rem;">
       <a routerLink="/facilities" class="btn btn-secondary btn-lg facility-view-btn">
-        <span>View All 8+ Campus Facilities</span>
+        <span>{{ langService.t('home.fac_btn') }}</span>
         <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
       </a>
     </div>
@@ -333,9 +333,9 @@
   <div class="gallery-ambient-glow glow-gold"></div>
   <div class="container relative-z">
     <app-page-header
-      badge="Campus Life"
-      title="Glimpses of Joy, Discovery & Celebration"
-      subtitle="Witness everyday moments of enthusiasm, laboratory experiments, sports victories, and cultural festivities."
+      [badge]="langService.t('home.gallery_badge')"
+      [title]="langService.t('home.gallery_title')"
+      [subtitle]="langService.t('home.gallery_sub')"
       theme="dark">
     </app-page-header>
 
@@ -360,7 +360,7 @@
 
     <div class="text-center" style="margin-top: 3.5rem;">
       <a routerLink="/activities/photo-gallery" class="btn btn-outline-white btn-lg gallery-more-btn">
-        <span>Visit Complete Photo Gallery</span>
+        <span>{{ langService.t('home.gallery_btn') }}</span>
         <svg viewBox="0 0 20 20" fill="currentColor" class="btn-arrow"><path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
       </a>
     </div>
@@ -372,9 +372,9 @@
   <div class="testimonial-ambient-orb orb-warm"></div>
   <div class="container relative-z">
     <app-page-header
-      badge="Parent & Alumni Voice"
-      title="Words of Trust & Appreciation"
-      subtitle="Hear what parents, guardians, and accomplished alumni say about their journey with Shri Bharath Kanna School.">
+      [badge]="langService.t('home.test_badge')"
+      [title]="langService.t('home.test_title')"
+      [subtitle]="langService.t('home.test_sub')">
     </app-page-header>
 
     <div class="grid grid-3 testimonials-grid">
